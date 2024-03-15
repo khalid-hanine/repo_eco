@@ -90,28 +90,51 @@ class ProduitController extends Controller
         $nom = $request->nom;
         $email = $request->email;
         $password = $request->password;
-        
-       
+    
+        // Créer un nouvel utilisateur
         $user = User::create([
             'name' => $nom,
             'email' => $email,
             'password' => $password
         ]);
     
-            $utilisateur_id = $user->id;
-
-            $paniers = Panier::where('user_id', null)->get();
+        $utilisateur_id = $user->id;
     
-            // Mettre à jour le champ 'user_id' dans chaque panier
-            foreach ($paniers as $panier) {
-                $panier->update(['user_id' => $utilisateur_id]);
+        // Récupérer les paniers associés à l'utilisateur nouvellement créé
+        $paniers = Panier::where('user_id', $utilisateur_id)->get();
+        $panier=Panier::all();
+    
+        if ($panier->isEmpty()) {
+            return 'pas de panier';
+        } else {
+            $total = 0;
+    
+            foreach ($panier as $item) {
+                $total += $item->total;
             }
-
-            
     
-      
-   
+            $whatsappMessage = 'Bonjour, je suis intéressé par les produits suivants :';
     
-
+            foreach ($panier as $item) {
+                // Ajouter les détails du produit au message WhatsApp
+                $whatsappMessage .= "\nNom du produit : " . $item->produit->nom;
+                $whatsappMessage .= "\nDescription : " . $item->produit->description;
+                $whatsappMessage .= "\nPrix : " . $item->produit->prix;
+                // Vous pouvez ajouter d'autres informations du produit ici
+            }
+    
+            // Ajouter le total à la fin du message WhatsApp
+            $whatsappMessage .= "\nTotal : " . $total;
+    
+            // Encodage du message pour l'URL WhatsApp
+            $encodedMessage = urlencode($whatsappMessage);
+            $whatsappNumber = '+212698376673'; 
+            $whatsappURL = "https://wa.me/{$whatsappNumber}/?text={$encodedMessage}";
+    
+            // Redirection vers l'URL WhatsApp
+            return redirect()->away($whatsappURL);
+        }
+    }
+    
+    
 }
-}   
