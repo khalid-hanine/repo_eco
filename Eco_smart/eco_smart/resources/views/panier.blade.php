@@ -28,9 +28,14 @@
      <tr>
         
 
-        <td class="w-25">                
-          <img src="{{ asset($item->produit->image) }}" class="w-25 h-25" alt="...">
-        </td>
+      <td class="w-25">                
+        @if($item->produit)
+            <img src="{{ asset($item->produit->image) }}" class="w-25 h-25" alt="...">
+        @else
+            <p>Aucune image disponible</p>
+        @endif
+    </td>
+    
         
         <td>{{$item->produit? $item->produit->description:"not found"}}</td>
         <td>{{$item->produit? $item->produit->prix:"not found"}}</td>

@@ -106,6 +106,8 @@ class ProduitController extends Controller
             foreach ($paniers as $panier) {
                 $panier->update(['user_id' => $utilisateur_id]);
             }
+
+            
     
       
    
