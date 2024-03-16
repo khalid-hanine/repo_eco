@@ -14,17 +14,17 @@
                     <div class="position-sticky">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active text-light" aria-current="page" href="#">
+                                <a class="nav-link active text-light" aria-current="page" href="{{route('admin')}}">
                                     Produits
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-light" href="#">
+                                <a class="nav-link text-light" href="{{route('listeCommande')}}">
                                     Commandes
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-light" href="#">
+                                <a class="nav-link text-light" href="{{route('listeUser')}}">
                                     Utilisateurs
                                 </a>
                             </li>

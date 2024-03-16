@@ -58,7 +58,9 @@ class ProduitController extends Controller
 
         ]);
 
-        return redirect()->route('produits')->with('success', 'Produit ajouté au panier avec succès');
+        // return redirect()->route('produits')->with('success', 'Produit ajouté au panier avec succès');
+        return back()->with('success', 'Produit ajouté au panier avec succès');
+
 
 
     }
@@ -99,9 +101,11 @@ class ProduitController extends Controller
         ]);
     
         $utilisateur_id = $user->id;
+       
     
         // Récupérer les paniers associés à l'utilisateur nouvellement créé
-        $paniers = Panier::where('user_id', $utilisateur_id)->get();
+        // $paniers = Panier::where('user_id', $utilisateur_id)->get();
+        Panier::where('user_id', null)->update(['user_id' => $utilisateur_id]);
         $panier=Panier::all();
     
         if ($panier->isEmpty()) {
@@ -113,6 +117,30 @@ class ProduitController extends Controller
                 $total += $item->total;
             }
     
+
+            // Initialiser une variable pour stocker les détails de la commande___________________
+$detailCommande = [];
+
+// Parcourir le panier et récupérer les détails des produits
+foreach ($panier as $item) {
+    // Construire une chaîne de texte avec les détails du produit
+    $detailProduit = $item->produit->nom . " (Prix: " . $item->produit->prix . ")";
+    
+    // Ajouter le détail du produit à la liste des détails de commande
+    $detailCommande[] = $detailProduit;
+}
+
+// Convertir la liste des détails en une chaîne de texte séparée par des virgules
+$detailCommandeTexte = implode(", ", $detailCommande);
+
+// Créer la commande avec les détails remplis
+Commande::create([
+    'total' => $total,
+    'user_id' => $utilisateur_id,
+    'detail' => $detailCommandeTexte, // Assigner les détails de la commande
+]);
+
+    //___________________________________
             $whatsappMessage = 'Bonjour, je suis intéressé par les produits suivants :';
     
             foreach ($panier as $item) {
@@ -124,12 +152,17 @@ class ProduitController extends Controller
             }
     
             // Ajouter le total à la fin du message WhatsApp
+            
             $whatsappMessage .= "\nTotal : " . $total;
+
     
             // Encodage du message pour l'URL WhatsApp
             $encodedMessage = urlencode($whatsappMessage);
             $whatsappNumber = '+212698376673'; 
             $whatsappURL = "https://wa.me/{$whatsappNumber}/?text={$encodedMessage}";
+            
+
+            Panier::truncate();
     
             // Redirection vers l'URL WhatsApp
             return redirect()->away($whatsappURL);

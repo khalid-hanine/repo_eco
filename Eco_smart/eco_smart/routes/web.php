@@ -31,15 +31,21 @@
     //_____________________________________
     Route::get('/SuppProPanier/{produitId}',[ProduitController::class,'SuppProPanier'])->name(name:'SuppProPanier');
 
+    
+    
+    
     //___________________________admin
     Route::get('/admin',[AdminController::class, 'index'])->name(name:'admin');  
 
     Route::get('/admin/create',[AdminController::class, 'create'])->name(name:'Admin.create');
     Route::post('/objet', [AdminController::class, 'store'])->name('objet.store');
 
+    Route::delete('/objets/{objet}',[AdminController::class, 'destroy'])->name('objets.destroy');
+    
 
+    Route::get('/listeCommande',[AdminController::class, 'listeCommande'])->name('listeCommande');
+    Route::get('/listeUser',[AdminController::class, 'listeUser'])->name('listeUser');
 
-   Route::delete('/objets/{objet}',[AdminController::class, 'destroy'])->name('objets.destroy');
 
 
 

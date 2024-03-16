@@ -10,7 +10,12 @@ class Commande extends Model
     use HasFactory;
     protected $fillable = [
         'total',
-        'utilisateurs' // Ajoutez 'total' ici
+        'user_id',
+        'detail' // Ajoutez 'total' ici
         // Ajoutez d'autres champs que vous souhaitez autoriser pour l'attribution de masse, le cas échéant
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

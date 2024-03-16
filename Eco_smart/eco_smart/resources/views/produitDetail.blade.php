@@ -1,6 +1,13 @@
 @extends('Layouts.app')
 
 @section('content')
+<div id="alert-container" class="alert-container">
+    @if(session('success'))
+    <div id="alert" class="alert show">
+        {{ session('success') }}
+    </div>
+    @endif
+</div>
 
 <div class="row m-5 " >
     <div class="col-6  ">

@@ -5,6 +5,12 @@ use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 use App\Models\Produit;
+use App\Models\Commande;
+use App\Models\Panier;
+use App\Models\User;
+
+
+
 
 
 class AdminController extends Controller
@@ -66,5 +72,18 @@ public function destroy($produitId){
     
     return redirect()->route('admin');
 }
-}
 
+public function listeCommande(){
+    $commande=Commande::all();
+    $panier=Panier::all();
+    // dd($panier);
+
+    // dd($commande);
+    return view('Admin.listeCommande',['commande'=>$commande,'panier'=>$panier]);
+}
+public function listeUser(){
+    $users=User::all();
+    return view('Admin.listeUser',['users'=>$users]);
+
+}
+}
