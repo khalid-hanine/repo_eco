@@ -14,14 +14,46 @@ use Illuminate\Http\Request;
 
 class ProduitController extends Controller
 {
+    public function acceuil(){
+        $produitsFromDB = Produit::where('type', 'produit')->take(3)->get();
+        $packFromDB = Produit::where('type', 'pack')->take(1)->get();
+
+
+        return view('acceuil',['produits' => $produitsFromDB,'pack' =>$packFromDB]);
+    }
+    //_______________test
+    public function acceuil2(){
+        $produitsFromDB = Produit::where('type', 'produit')->take(3)->get();
+        $packFromDB = Produit::where('type', 'pack')->take(1)->get();
+
+
+        return view('acceuil2',['produits' => $produitsFromDB,'pack' =>$packFromDB]);
+        
+    }
+
+
+    //____________
     public function produits(){
-        $produitsFromDB=Produit::all();
+        $produitsFromDB = Produit::where('type', 'produit')->get();
+
         return view('produits',['produits' => $produitsFromDB]);
     }
+    public function pack(){
+        $produitsFromDB = Produit::where('type', 'pack')->get();
+        return view('pack',['produits' => $produitsFromDB]);
+
+
+
+    }
     public function produitDetail(Produit $produit)
+
 {
+    $produitsFromDB = Produit::where('type', 'produit')->take(3)->get();
+
+
+
     // @dd($produit);
-    return view('produitDetail', ['produit' => $produit]);
+    return view('produitDetail', ['produit' => $produit,'produitsFromDB'=>$produitsFromDB]);
 }
    
 //_________________________________________________________________________

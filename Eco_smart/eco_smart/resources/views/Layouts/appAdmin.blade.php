@@ -14,7 +14,7 @@
                     <div class="position-sticky">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active text-light" aria-current="page" href="{{route('admin')}}">
+                                <a class="nav-link active text-light" aria-current="page" href="{{route('index')}}">
                                     Produits
                                 </a>
                             </li>

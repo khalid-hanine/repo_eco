@@ -16,40 +16,33 @@
     |
     */
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    Route::get('/', [ProduitController::class,'acceuil'])->name(name:'acceuil');
+    Route::get('/acceuil2', [ProduitController::class,'acceuil2'])->name(name:'acceuil2');
+
 
     Route::get('/produits', [ProduitController::class,'produits'])->name(name:'produits');
     Route::get('/produits/{produit}', [ProduitController::class,'produitDetail'])->name(name:'produitDetail');
 
-    
     Route::get('/panier', [ProduitController::class,'panier'])->name(name:'panier');
-
     //___________________________________
     Route::post('/ajouterPanier', [ProduitController::class,'ajouterPanier'])->name(name:'ajouterPanier');
     //_____________________________________
     Route::get('/SuppProPanier/{produitId}',[ProduitController::class,'SuppProPanier'])->name(name:'SuppProPanier');
-
-    
-    
+    Route::get('/pack',[ProduitController::class,'pack'])->name(name:'pack');
     
     //___________________________admin
-    Route::get('/admin',[AdminController::class, 'index'])->name(name:'admin');  
+    Route::get('/admin',[AdminController::class, 'admin'])->name(name:'admin');
+    Route::post('/adminInfo',[AdminController::class, 'adminInfo'])->name(name:'adminInfo');  
+
+    Route::get('/index',[AdminController::class, 'index'])->name(name:'index');  
 
     Route::get('/admin/create',[AdminController::class, 'create'])->name(name:'Admin.create');
     Route::post('/objet', [AdminController::class, 'store'])->name('objet.store');
 
     Route::delete('/objets/{objet}',[AdminController::class, 'destroy'])->name('objets.destroy');
-    
 
     Route::get('/listeCommande',[AdminController::class, 'listeCommande'])->name('listeCommande');
     Route::get('/listeUser',[AdminController::class, 'listeUser'])->name('listeUser');
-
-
-
-
-
 
    Route::get('/connecter',[ProduitController::class, 'connecter'])->name(name:'connecter'); 
 

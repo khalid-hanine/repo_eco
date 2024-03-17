@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Models\Produit;
@@ -15,6 +16,23 @@ use App\Models\User;
 
 class AdminController extends Controller
 {
+    public function admin(){
+        
+
+        return view('Admin.loginAdmin');
+    }
+    public function adminInfo(Request $request){
+        $credentials = $request->only('name', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Les informations d'identification sont valides, rediriger vers le tableau de bord administratif
+            return redirect()->route('index');
+        }
+        return 'erreur';
+        
+
+        // return view('Layouts.appAdmin');
+    }
     public function index(){
         $productsFromDB=Produit::all();
 
@@ -36,7 +54,9 @@ class AdminController extends Controller
         'nom' => ['required', 'min:3'],
         'description' => ['required'],
         'image' => 'required|image|mimes:png,jpg,jpeg,webp,WEBP',
-        'prix' => ['required']
+        'prix' => ['required'],
+        'type' => ['required']
+
     ]);
 
     // Traiter l'image si elle est présente
@@ -51,14 +71,16 @@ class AdminController extends Controller
             'nom' => $validatedData['nom'],
             'description' => $validatedData['description'],
             'image' => $path . '/' . $filename,
-            'prix' => $validatedData['prix']
+            'prix' => $validatedData['prix'],
+            'type' => $validatedData['type']
+
         ]);
     } else {
         // Créer le produit sans image
        
     }
     // Rediriger vers la page d'administration
-    return redirect()->route('admin');
+    return redirect()->route('index');
 }
 
 
@@ -70,7 +92,9 @@ public function destroy($produitId){
 
    
     
-    return redirect()->route('admin');
+    return redirect()->route('index');
+    
+
 }
 
 public function listeCommande(){

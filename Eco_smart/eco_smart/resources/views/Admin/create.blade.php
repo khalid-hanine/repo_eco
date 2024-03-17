@@ -30,6 +30,14 @@ Create
         <label class="form-label">Image</label>
         <input type="file" class="form-control" name="image">
     </div>
+    <div>
+        <p>Type de produit:</p>
+        <input type="radio" id="pack" name="type" value="pack" >
+        <label for="pack">Pack</label>
+        <br>
+        <input type="radio" id="produit" name="type" value="produit">
+        <label for="produit">Produit</label>
+    </div>
     <div class="mb-3">
         <label class="form-label">Prix</label>
         <input type="text" class="form-control" name="prix" value="{{ old('prix') }}">
