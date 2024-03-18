@@ -17,7 +17,7 @@
     */
 
     Route::get('/', [ProduitController::class,'acceuil'])->name(name:'acceuil');
-    Route::get('/acceuil2', [ProduitController::class,'acceuil2'])->name(name:'acceuil2');
+   
 
 
     Route::get('/produits', [ProduitController::class,'produits'])->name(name:'produits');
@@ -38,6 +38,11 @@
 
     Route::get('/admin/create',[AdminController::class, 'create'])->name(name:'Admin.create');
     Route::post('/objet', [AdminController::class, 'store'])->name('objet.store');
+
+Route::get('/produits/{produit}/edit', [AdminController::class, 'edit'])->name('produits.edit');
+Route::put('/produits/{produit}',[AdminController::class, 'update'])->name('produits.update');
+
+
 
     Route::delete('/objets/{objet}',[AdminController::class, 'destroy'])->name('objets.destroy');
 

@@ -30,6 +30,13 @@ Create
         <label class="form-label">Image</label>
         <input type="file" class="form-control" name="image">
     </div>
+    <div class="mb-3">
+        <label class="form-label">Image 2</label>
+        <input type="file" class="form-control" name="image2">
+    </div><div class="mb-3">
+        <label class="form-label">Image 3</label>
+        <input type="file" class="form-control" name="image3">
+    </div>
     <div>
         <p>Type de produit:</p>
         <input type="radio" id="pack" name="type" value="pack" >

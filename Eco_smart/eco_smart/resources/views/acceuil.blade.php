@@ -16,11 +16,11 @@
     <section class="containner">
         <img src="{{ asset('images/produits/cover.png') }}" class="d-block w-100" alt="Logo">
         
+        
     <section>
         <h1 class="text-center mb-4">NOT PRODUITS</h1>
 
-{{-- //______ --}}
- <div class="row">
+ <div class="row"> 
 
   @foreach ($produits as $produit)
         <div class="card col-3" style="width: 18rem;">
@@ -30,7 +30,7 @@
 
             </a> 
             <div class="card-body">
-                <h2 class="card-title">{{ $produit->id }}</h2>
+               
 
                 <h5 class="card-title">{{ $produit->nom }}</h5>
                 <p class="card-text">{{ $produit->description }}</p> 
@@ -42,7 +42,7 @@
                     <input type="hidden" name="produit_id" value="{{$produit->id}}">
                     <input type="hidden" name="produit_prix" value="{{$produit->prix}}">
 
-                    <label>quantite</label>
+                  
                     <input type="number" name="quantite" value="1" min="1">
         
                     <button type="submit" class="btn btn-warning">Ajouter au panier</button>
@@ -50,7 +50,7 @@
             </div>
         </div>
     @endforeach
- </div>
+
   
     <a href="{{route('produits')}}" class="btn btn-dark text-light">Voir plus</a>
     {{-- //________________ --}}
@@ -62,7 +62,7 @@
 
             </a> 
             <div class="card-body">
-                <h2 class="card-title">{{ $produit->id }}</h2>
+                
 
                 <h5 class="card-title">{{ $produit->nom }}</h5>
                 <p class="card-text">{{ $produit->description }}</p> 
@@ -74,7 +74,7 @@
                     <input type="hidden" name="produit_id" value="{{$produit->id}}">
                     <input type="hidden" name="produit_prix" value="{{$produit->prix}}">
 
-                    <label>quantite</label>
+                    
                     <input type="number" name="quantite" value="1" min="1">
         
                     <button type="submit" class="btn btn-warning">Ajouter au panier</button>

@@ -37,7 +37,7 @@
           <td>
              
             
-            <a href="#" class="btn btn-primary">Edit</a>
+            <a href="{{route('produits.edit',$produit->id)}}" class="btn btn-primary">Edit</a>
 
             <form method="POST" action="{{route('objets.destroy',$produit->id)}}"  style="display: inline" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce post?')">
               @csrf

@@ -8,7 +8,7 @@
     <title>ECO SMART</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js') }}"  crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/acceuil.css') }}">
 
     <style>
         /* Your custom styles here */
@@ -66,26 +66,24 @@
         .footer-cen {
             margin-left:15px;
         }
+        .row{
+    margin-left: 15%;
+}
+.card-img-top {
+    margin-left:30%;
+    cursor: pointer;
+    width: 100px;
+    height:100px;
+}
+
+.card-img-top:hover {
+    transform: scale(1.05);
+}
 
 
     </style>
 </head>
-<body 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->
+<body>
     <div class="fixed-header">
         <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
             <div class="container-fluid">

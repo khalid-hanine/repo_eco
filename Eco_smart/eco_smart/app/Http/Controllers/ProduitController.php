@@ -11,6 +11,7 @@ use App\Models\User;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ProduitController extends Controller
 {
@@ -22,14 +23,7 @@ class ProduitController extends Controller
         return view('acceuil',['produits' => $produitsFromDB,'pack' =>$packFromDB]);
     }
     //_______________test
-    public function acceuil2(){
-        $produitsFromDB = Produit::where('type', 'produit')->take(3)->get();
-        $packFromDB = Produit::where('type', 'pack')->take(1)->get();
-
-
-        return view('acceuil2',['produits' => $produitsFromDB,'pack' =>$packFromDB]);
-        
-    }
+   
 
 
     //____________
@@ -48,7 +42,7 @@ class ProduitController extends Controller
     public function produitDetail(Produit $produit)
 
 {
-    $produitsFromDB = Produit::where('type', 'produit')->take(3)->get();
+    $produitsFromDB = Produit::take(3)->get();
 
 
 
@@ -121,15 +115,17 @@ class ProduitController extends Controller
         return view('inscrire');
     }
     public function StoreInscrire(Request $request) {
-        $nom = $request->nom;
-        $email = $request->email;
-        $password = $request->password;
+        $validatedData = $request->validate([
+            'nom' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8'],
+        ]);
     
         // Créer un nouvel utilisateur
         $user = User::create([
-            'name' => $nom,
-            'email' => $email,
-            'password' => $password
+            'name' => $validatedData['nom'],
+            'email' => $validatedData['email'],
+            'password' => Hash::make($validatedData['password']), // Assurez-vous de hasher le mot de passe
         ]);
     
         $utilisateur_id = $user->id;
@@ -190,7 +186,7 @@ Commande::create([
     
             // Encodage du message pour l'URL WhatsApp
             $encodedMessage = urlencode($whatsappMessage);
-            $whatsappNumber = '+212698376673'; 
+            $whatsappNumber = '+212665413778'; 
             $whatsappURL = "https://wa.me/{$whatsappNumber}/?text={$encodedMessage}";
             
 

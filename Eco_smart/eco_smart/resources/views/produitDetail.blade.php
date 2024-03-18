@@ -13,9 +13,8 @@
     <div class="col-6  ">
         <div class="row">
             <div class="col-3">
-                <img src="{{ asset($produit->image) }}" class="w-75 h-25" alt="...">
-                <img src="{{ asset($produit->image) }}" class="w-75" alt="...">
-                <img src="{{ asset($produit->image) }}" class="w-75" alt="..."> 
+                <img src="{{ asset($produit->image2) }}" class="w-75 h-50" alt="...">
+                <img src="{{ asset($produit->image3) }}" class="w-75 h-50" alt="...">
 
 
             </div>
@@ -55,7 +54,7 @@
 
             </a> 
             <div class="card-body">
-                <h2 class="card-title">{{ $produit->id }}</h2>
+                
 
                 <h5 class="card-title">{{ $produit->nom }}</h5>
                 <p class="card-text">{{ $produit->description }}</p> 

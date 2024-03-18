@@ -1,0 +1,13 @@
+.row{
+    margin-left: 15%;
+}
+.card-img-top {
+    margin-left:30%;
+    cursor: pointer;
+    width: 100px;
+    height:100px;
+}
+
+.card-img-top:hover {
+    transform: scale(1.05);
+}

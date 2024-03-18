@@ -48,39 +48,94 @@ class AdminController extends Controller
         return view('Admin.create',['produits'=>$produit]);
     }
     public function store(Request $request)
-{
-    // Valider les données du formulaire
-    $validatedData = $request->validate([
-        'nom' => ['required', 'min:3'],
-        'description' => ['required'],
-        'image' => 'required|image|mimes:png,jpg,jpeg,webp,WEBP',
-        'prix' => ['required'],
-        'type' => ['required']
-
-    ]);
-
-    // Traiter l'image si elle est présente
-    if ($request->hasFile('image')) {
-        $file = $request->file('image');
-        $filename = time() . '.' . $file->getClientOriginalExtension();
-        $path = 'images/produits';
-        $file->move($path, $filename);
-
-        // Créer le produit avec l'image téléchargée
-        Produit::create([
+    {
+        // Valider les données du formulaire
+        $validatedData = $request->validate([
+            'nom' => ['required', 'min:3'],
+            'description' => ['required'],
+            'image' => 'required|image|mimes:png,jpg,jpeg,webp,WEBP',
+            'image2' => 'required|image|mimes:png,jpg,jpeg,webp,WEBP',
+            'image3' => 'required|image|mimes:png,jpg,jpeg,webp,WEBP',
+            'prix' => ['required'],
+            'type' => ['required']
+        ]);
+    
+        // Initialiser un tableau pour stocker les chemins d'images
+        $imagePaths = [];
+    
+        // Traiter chaque image si elle est présente
+        foreach (['image', 'image2', 'image3'] as $key => $imageField) {
+            if ($request->hasFile($imageField)) {
+                $file = $request->file($imageField);
+                $filename = time() . '_' . ($key + 1) . '.' . $file->getClientOriginalExtension();
+                $path = 'images/produits';
+                $file->move($path, $filename);
+                $imagePaths[$imageField] = $path . '/' . $filename;
+            }
+        }
+    
+        // Créer le produit avec les images téléchargées
+        $produitData = [
             'nom' => $validatedData['nom'],
             'description' => $validatedData['description'],
-            'image' => $path . '/' . $filename,
             'prix' => $validatedData['prix'],
             'type' => $validatedData['type']
-
-        ]);
-    } else {
-        // Créer le produit sans image
-       
+        ];
+    
+        // Ajouter les chemins d'images au tableau de données du produit
+        foreach ($imagePaths as $field => $path) {
+            $produitData[$field] = $path;
+        }
+    
+        // Créer le produit avec les données
+        Produit::create($produitData);
+    
+        // Rediriger vers la page d'administration
+        return redirect()->route('index');
     }
-    // Rediriger vers la page d'administration
-    return redirect()->route('index');
+    
+public function edit(Produit $produit){
+    $produits=Produit::all();
+
+    return view('Admin.edit',['produits'=>$produits ,'produit'=>$produit]);
+}
+public function update(Request $request ,$produitId){
+
+        // Valider les données du formulaire
+        $validatedData = $request->validate([
+            'nom' => ['required', 'min:3'],
+            'description' => ['required'],
+            'image' => 'image|mimes:png,jpg,jpeg,webp,WEBP',
+            'prix' => ['required'],
+            'type' => ['required']
+        ]);
+    
+        // Rechercher le produit à mettre à jour
+        $produit = Produit::find($produitId);
+    
+        // Mettre à jour les champs du produit
+        $produit->nom = $validatedData['nom'];
+        $produit->description = $validatedData['description'];
+        $produit->prix = $validatedData['prix'];
+        $produit->type = $validatedData['type'];
+    
+        // Traiter l'image si elle est présente
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $path = 'images/produits';
+            $file->move($path, $filename);
+            $produit->image = $path . '/' . $filename;
+        }
+    
+        // Enregistrer les modifications apportées au produit
+        $produit->save();
+    
+        // Rediriger vers la page d'administration
+        return redirect()->route('index');
+
+
+
 }
 
 
