@@ -1,0 +1,26 @@
+#quantite{
+    width: 30%;
+    height: 22%;
+    border-radius: 4px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+#voirPlus{
+    width: 25%;
+    margin: auto;
+}
+#imgpack{
+    height: 200px;
+    width: 200px;
+    margin-left: 20px;
+}
+.nom{
+   
+    margin-top: 30px;
+}
+#quantitepack{
+    height: 19%;
+    width: 20%;
+    border-radius: 4px;
+
+}

@@ -15,8 +15,9 @@
     | be assigned to the "web" middleware group. Make something great!
     |
     */
-
-    Route::get('/', [ProduitController::class,'acceuil'])->name(name:'acceuil');
+    Route::get('/', [ProduitController::class,'intro'])->name(name:'intro');
+    
+    Route::get('/acceuil', [ProduitController::class,'acceuil'])->name(name:'acceuil');
    
 
 
@@ -31,11 +32,13 @@
     Route::get('/pack',[ProduitController::class,'pack'])->name(name:'pack');
     
     //___________________________admin
-    Route::get('/admin',[AdminController::class, 'admin'])->name(name:'admin');
+   
+
+         Route::get('/admin',[AdminController::class, 'admin'])->name(name:'admin');
     Route::post('/adminInfo',[AdminController::class, 'adminInfo'])->name(name:'adminInfo');  
 
     Route::get('/index',[AdminController::class, 'index'])->name(name:'index');  
-
+// ->middleware('auth')
     Route::get('/admin/create',[AdminController::class, 'create'])->name(name:'Admin.create');
     Route::post('/objet', [AdminController::class, 'store'])->name('objet.store');
 
@@ -46,8 +49,12 @@ Route::put('/produits/{produit}',[AdminController::class, 'update'])->name('prod
 
     Route::delete('/objets/{objet}',[AdminController::class, 'destroy'])->name('objets.destroy');
 
-    Route::get('/listeCommande',[AdminController::class, 'listeCommande'])->name('listeCommande');
-    Route::get('/listeUser',[AdminController::class, 'listeUser'])->name('listeUser');
+    Route::get('/listeCommande',[AdminController::class, 'listeCommande'])->name('listeCommande')->middleware('auth');
+    Route::get('/listeUser',[AdminController::class, 'listeUser'])->name('listeUser')->middleware('auth');
+    
+   
+
+    //_____________________________________
 
    Route::get('/connecter',[ProduitController::class, 'connecter'])->name(name:'connecter'); 
 

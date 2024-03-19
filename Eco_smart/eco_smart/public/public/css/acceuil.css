@@ -1,13 +1,66 @@
-.row{
-    margin-left: 15%;
+
+
+.containner{
+    
+   
+    margin-left: 0;
+    text-align: center;
 }
+
+#cover{
+    margin-left: auto;
+   
+}
+
 .card-img-top {
-    margin-left:30%;
-    cursor: pointer;
-    width: 100px;
-    height:100px;
+
+cursor: pointer;
+width: 150px;
+height:150px;
+border-radius: 20px;
 }
 
 .card-img-top:hover {
-    transform: scale(1.05);
+transform: scale(1.05);
+}
+#divCard{
+    margin-left: 15px ;
+    margin-bottom: 15px;
+   align-items: center;
+   text-align: center;
+   padding-top: 10px;
+   height: 350px;
+    
+}
+#quantite{
+    width: 30%;
+    height: 22%;
+    border-radius: 4px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+#voirPlus{
+    width: 25%;
+    margin: auto;
+}
+#imgpack{
+    height: 200px;
+    width: 200px;
+
+}
+.nom{
+   
+    margin-top: 30px;
+}
+#quantitepack{
+    height: 19%;
+    width: 20%;
+    border-radius: 4px;
+
+}
+#ajouterAuPanier{
+   
+    height: 16%;
+    border-radius: 10px;
+    background-color: yellow;
 }

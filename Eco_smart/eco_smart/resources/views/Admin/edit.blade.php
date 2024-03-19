@@ -33,14 +33,18 @@ edit
     <div class="mb-3">
         <div class="mb-3">
             <label class="form-label">Image actuelle</label><br>
-            @if($produit->image)
+           
                 <img src="{{ asset( $produit->image) }}" alt="Image du produit" style="max-width: 200px;">
-            @else
-                <p>Aucune image disponible</p>
-            @endif
+                <img src="{{ asset( $produit->image2) }}" alt="Image du produit" style="max-width: 200px;">
+                <img src="{{ asset( $produit->image3) }}" alt="Image du produit" style="max-width: 200px;">
+                
         </div>
         <label class="form-label">Importer une image</label>
         <input type="file" class="form-control" name="image" >
+        <input type="file" class="form-control" name="image2" >
+        <input type="file" class="form-control" name="image3" >
+
+
     </div>
     <div>
         <p>Type de produit:</p>

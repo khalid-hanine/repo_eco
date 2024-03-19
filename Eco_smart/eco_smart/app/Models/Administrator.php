@@ -1,0 +1,14 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Administrator extends Model
+{
+    use HasFactory;
+    protected $fillable = ['name', 'email', 'password']; // Définissez les attributs remplissables
+
+    protected $hidden = ['password']; // Définissez les attributs masqués
+}

@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
 
 use Illuminate\Http\Request;
 use App\Models\Produit;
 use App\Models\Commande;
 use App\Models\Panier;
 use App\Models\User;
+use App\Models\Administrator;
+
 
 
 
@@ -22,17 +26,23 @@ class AdminController extends Controller
         return view('Admin.loginAdmin');
     }
     public function adminInfo(Request $request){
-        $credentials = $request->only('name', 'password');
+       
+        $validatedData = $request->validate([
+            'name' => ['required'],
+            'password' => ['required'],
+        ]);
+        // dd($validatedData);
+    
+        
+       
+        
 
-        if (Auth::attempt($credentials)) {
-            // Les informations d'identification sont valides, rediriger vers le tableau de bord administratif
-            return redirect()->route('index');
-        }
-        return 'erreur';
+    }
+    
         
 
         // return view('Layouts.appAdmin');
-    }
+    
     public function index(){
         $productsFromDB=Produit::all();
 
@@ -106,6 +116,9 @@ public function update(Request $request ,$produitId){
             'nom' => ['required', 'min:3'],
             'description' => ['required'],
             'image' => 'image|mimes:png,jpg,jpeg,webp,WEBP',
+            'image2' => 'image|mimes:png,jpg,jpeg,webp,WEBP',
+            'image3' => 'image|mimes:png,jpg,jpeg,webp,WEBP',
+
             'prix' => ['required'],
             'type' => ['required']
         ]);
@@ -126,6 +139,20 @@ public function update(Request $request ,$produitId){
             $path = 'images/produits';
             $file->move($path, $filename);
             $produit->image = $path . '/' . $filename;
+        }
+        else if ($request->hasFile('image2')) {
+            $file = $request->file('image2');
+            $filename2 = time() . '.' . $file->getClientOriginalExtension();
+            $path = 'images/produits';
+            $file->move($path, $filename2);
+            $produit->image2 = $path . '/' . $filename2;
+        }
+        else if ($request->hasFile('image3')) {
+            $file = $request->file('image3');
+            $filename3 = time() . '.' . $file->getClientOriginalExtension();
+            $path = 'images/produits';
+            $file->move($path, $filename3);
+            $produit->image3 = $path . '/' . $filename3;
         }
     
         // Enregistrer les modifications apportées au produit

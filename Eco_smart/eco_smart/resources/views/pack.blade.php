@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="{{ asset('public/css/pack.css') }}">
+
 @extends('layouts.app')
 
 @section('content')
@@ -10,18 +12,18 @@
 </div>
 
     @foreach ($produits as $produit)
-        <div class="card col-3" style="width: 18rem;">
-             <a href="{{ route('produitDetail', $produit->id) }}">
+        <div class="row" >
+             <a href="{{ route('produitDetail', $produit->id) }}" class="col-6">
                 {{-- <img class="card-img-top" src="{{ asset("images/produits/img4.png") }}" alt="..."> --}}
-                <img class="card-img-top" src="{{ asset($produit->image) }}" alt="...">
+                <img class="card-img-top" src="{{ asset($produit->image) }}" alt="..." id="imgpack">
 
             </a> 
-            <div class="card-body">
+            <div class="col-6">
                
 
-                <h5 class="card-title">{{ $produit->nom }}</h5>
-                <p class="card-text">{{ $produit->description }}</p> 
-                <p class="card-text">{{ $produit->prix }}</p> 
+                <h5 class="nom">{{ $produit->nom }}</h5>
+                <p class="description">{{ $produit->description }}</p> 
+                <p class="prix">{{ $produit->prix }}</p> 
 
                 
                 <form action="{{ route('ajouterPanier') }}" method="POST">
@@ -30,7 +32,7 @@
                     <input type="hidden" name="produit_prix" value="{{$produit->prix}}">
 
                    
-                    <input type="number" name="quantite" value="1" min="1">
+                    <input type="number" name="quantite" value="1" min="1" id="quantitepack">
         
                     <button type="submit" class="btn btn-warning">Ajouter au panier</button>
                 </form> 

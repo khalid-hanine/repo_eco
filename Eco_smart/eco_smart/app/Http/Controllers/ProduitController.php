@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Hash;
 
 class ProduitController extends Controller
 {
+
+    public function intro(){
+        return view('layouts.intro');
+    }
     public function acceuil(){
         $produitsFromDB = Produit::where('type', 'produit')->take(3)->get();
         $packFromDB = Produit::where('type', 'pack')->take(1)->get();
