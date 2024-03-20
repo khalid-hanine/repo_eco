@@ -1,19 +1,21 @@
-
-
 .containner{
-    
-   
+    margin-top: 50px;
     margin-left: 0;
     text-align: center;
 }
 
-#cover{
-    margin-left: auto;
-   
+
+.carousel{
+    margin-left: 25%;
+}
+.carousel-item img{
+    margin-left: 30%;
+    width: 300px;
+    height:300px;
 }
 
 .card-img-top {
-
+    padding-top: 0px;
 cursor: pointer;
 width: 150px;
 height:150px;
@@ -24,20 +26,20 @@ border-radius: 20px;
 transform: scale(1.05);
 }
 #divCard{
-    margin-left: 15px ;
+    margin-left: 10%;
     margin-bottom: 15px;
    align-items: center;
    text-align: center;
    padding-top: 10px;
-   height: 350px;
-    
+   height: 380px;
+
 }
 #quantite{
     width: 30%;
-    height: 22%;
+    height: 19%;
     border-radius: 4px;
-    margin-right: 20px;
-    margin-bottom: 10px;
+    margin-right: 30px;
+
 }
 #voirPlus{
     width: 25%;
@@ -49,17 +51,15 @@ transform: scale(1.05);
 
 }
 .nom{
-   
     margin-top: 30px;
 }
 #quantitepack{
-    height: 19%;
+    height: 16%;
     width: 20%;
     border-radius: 4px;
 
 }
 #ajouterAuPanier{
-   
     height: 16%;
     border-radius: 10px;
     background-color: yellow;

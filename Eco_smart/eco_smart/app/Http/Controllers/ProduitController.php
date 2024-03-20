@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 
+
+
 use App\Models\Produit;
 use App\Models\Panier;
 use App\Models\Commande;
@@ -99,47 +101,27 @@ class ProduitController extends Controller
         // dd($produitId);
         $SinglProductFromDB=Panier::find($produitId);
         $SinglProductFromDB->delete();
-
-  
-
         
         return to_route('panier');
 
     }
 
-
-
-
     public function connecter(){
         
         return view('connecter');
     }
-    public function loginUser(){
-        return 'jhghghgfhg';
-    }
-    
-    public function inscrire(){
-        return view('inscrire');
-    }
-    public function StoreInscrire(Request $request) {
-        $validatedData = $request->validate([
-            'nom' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8'],
-        ]);
-    
-        // Créer un nouvel utilisateur
-        $user = User::create([
-            'name' => $validatedData['nom'],
-            'email' => $validatedData['email'],
-            'password' => Hash::make($validatedData['password']), // Assurez-vous de hasher le mot de passe
-        ]);
-    
-        $utilisateur_id = $user->id;
-       
-    
-        // Récupérer les paniers associés à l'utilisateur nouvellement créé
-        // $paniers = Panier::where('user_id', $utilisateur_id)->get();
+    public function loginUser (Request $request){
+        $credentials = $request->only('name', 'password');
+        // $password = $credentials['password'];
+
+        // $user=User::where('password',$name)->first();
+        // dd($user);
+        // $utilisateur_id = $user->id;
+        // dd($utilisateur_id);
+
+    if (Auth::attempt($credentials)) {
+        $utilisateur_id =Auth::id();
+        //***** */
         Panier::where('user_id', null)->update(['user_id' => $utilisateur_id]);
         $panier=Panier::all();
     
@@ -152,57 +134,126 @@ class ProduitController extends Controller
                 $total += $item->total;
             }
     
-
-            // Initialiser une variable pour stocker les détails de la commande___________________
 $detailCommande = [];
 
-// Parcourir le panier et récupérer les détails des produits
 foreach ($panier as $item) {
-    // Construire une chaîne de texte avec les détails du produit
+   
     $detailProduit = $item->produit->nom . " (Prix: " . $item->produit->prix . ")";
-    
-    // Ajouter le détail du produit à la liste des détails de commande
+
     $detailCommande[] = $detailProduit;
 }
 
-// Convertir la liste des détails en une chaîne de texte séparée par des virgules
 $detailCommandeTexte = implode(", ", $detailCommande);
 
-// Créer la commande avec les détails remplis
+
 Commande::create([
     'total' => $total,
     'user_id' => $utilisateur_id,
-    'detail' => $detailCommandeTexte, // Assigner les détails de la commande
+    'detail' => $detailCommandeTexte, 
 ]);
 
-    //___________________________________
             $whatsappMessage = 'Bonjour, je suis intéressé par les produits suivants :';
     
             foreach ($panier as $item) {
-                // Ajouter les détails du produit au message WhatsApp
+          
                 $whatsappMessage .= "\nNom du produit : " . $item->produit->nom;
                 $whatsappMessage .= "\nDescription : " . $item->produit->description;
                 $whatsappMessage .= "\nPrix : " . $item->produit->prix;
-                // Vous pouvez ajouter d'autres informations du produit ici
+                
             }
     
-            // Ajouter le total à la fin du message WhatsApp
-            
             $whatsappMessage .= "\nTotal : " . $total;
 
-    
-            // Encodage du message pour l'URL WhatsApp
             $encodedMessage = urlencode($whatsappMessage);
             $whatsappNumber = '+212665413778'; 
             $whatsappURL = "https://wa.me/{$whatsappNumber}/?text={$encodedMessage}";
-            
-
-            Panier::truncate();
     
-            // Redirection vers l'URL WhatsApp
+            Panier::truncate();
             return redirect()->away($whatsappURL);
         }
-    }
+    }    
     
+
+
+        
+        // return $utilisateur_id;
+    else {
+        return 'faux';
+    }
+}   
+
+    
+    public function inscrire(){
+        return view('inscrire');
+    }
+    public function StoreInscrire(Request $request) {
+        // dd($request);
+       
+       
+        $validatedData = $request->validate([
+            'nom' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string']
+        ]);
+        
+          
+        $user = User::create([
+            'name' => $validatedData['nom'],
+            'email' => $validatedData['email'],
+            'password' => Hash::make($validatedData['password']), 
+        ]);
+    
+        $utilisateur_id = $user->id;
+  
+        Panier::where('user_id', null)->update(['user_id' => $utilisateur_id]);
+        $panier=Panier::all();
+    
+        if ($panier->isEmpty()) {
+            return 'pas de panier';
+        } else {
+            $total = 0;
+    
+            foreach ($panier as $item) {
+                $total += $item->total;
+            }
+    
+$detailCommande = [];
+
+foreach ($panier as $item) {
+   
+    $detailProduit = $item->produit->nom . " (Prix: " . $item->produit->prix . ")";
+
+    $detailCommande[] = $detailProduit;
+}
+
+$detailCommandeTexte = implode(", ", $detailCommande);
+
+
+Commande::create([
+    'total' => $total,
+    'user_id' => $utilisateur_id,
+    'detail' => $detailCommandeTexte, 
+]);
+
+            $whatsappMessage = 'Bonjour, je suis intéressé par les produits suivants :';
+    
+            foreach ($panier as $item) {
+          
+                $whatsappMessage .= "\nNom du produit : " . $item->produit->nom;
+                $whatsappMessage .= "\nDescription : " . $item->produit->description;
+                $whatsappMessage .= "\nPrix : " . $item->produit->prix;
+                
+            }
+    
+            $whatsappMessage .= "\nTotal : " . $total;
+
+            $encodedMessage = urlencode($whatsappMessage);
+            $whatsappNumber = '+212665413778'; 
+            $whatsappURL = "https://wa.me/{$whatsappNumber}/?text={$encodedMessage}";
+    
+            Panier::truncate();
+            return redirect()->away($whatsappURL);
+        }
+    }    
     
 }

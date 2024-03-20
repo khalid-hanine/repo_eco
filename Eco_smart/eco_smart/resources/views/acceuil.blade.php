@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" type="text/css" href="{{ asset('public/css/acceuil.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/acceuil.css') }}">
 
 @extends('layouts.app')
 
@@ -18,7 +18,42 @@
 
     <section class="containner">
         <img src="{{ asset('images/produits/cover.png') }}" class="d-block w-100" alt="Logo" id="cover">
+        <br>
         
+        <h1 class="text-center mt-4">les activites</h1>
+
+        <div id="carouselExampleDark" class="carousel w-50  carousel-dark slide mt-45" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+
+            </div>
+            <div class="carousel-inner">
+
+                <div class="carousel-item  active" data-bs-interval="2000">
+                    <img src="{{ asset('images/produits/img1.png') }}" class="d-block " alt="">
+
+
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="{{ asset('images/produits/img2.jpg') }}" class="d-block " alt="">
+
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="{{ asset('images/produits/img3.jpg') }}" class="d-block " alt="">
+
+                </div>
+            </div>
+            <button class="   carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <span class=" bg-primary carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="bg-primary visually-hidden">Previous</span>
+            </button>
+            <button class="  carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <span class=" bg-primary carousel-control-next-icon" aria-hidden="true"></span>
+                <span class=" bg-primary visually-hidden">Next</span>
+            </button>
+        </div><br>
         
     <section>
         <h1 class="text-center mb-4" id='titleProduit'>NOT PRODUITS</h1>

@@ -1,30 +1,29 @@
-
 body {
     margin: 0;
     padding: 0;
-   
+
     position: relative;
 }
 #global{
-   
-    align-items: center;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    
 
-    
-   
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+
+
+
+
 }
-footer {
-    /* margin-top: 200px; */
+/*footer {
+     margin-top: 200px;
     width: 100%;
-    height: 300px; /* Hauteur de votre footer */
+    height: 300px;
     position: absolute;
     margin-bottom: 0;
-    background-color: #333; /* Couleur de fond de votre footer */
-    color: #fff; /* Couleur du texte de votre footer */
-    text-align: center; /* Alignement du texte au centre */
-}
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+} */
   /* Your custom styles here */
   nav {
     text-align: center;
@@ -33,7 +32,7 @@ footer {
 
 /* Style for navigation links */
 nav a {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     text-decoration: none;
     margin: 0 50px; /* Adjust the margin to create space between elements */
 }
@@ -43,10 +42,10 @@ nav a {
     margin-inline-start: 30%;
 }
 .containner{
-    margin-top: 80px;
+    margin-top: 0px;
 }
 
-/*________*/
+
 
 
 .alert-container {
@@ -74,7 +73,19 @@ nav a {
 .alert.show {
     opacity: 1; /* Lorsque la classe 'show' est ajoutée, l'alerte devient visible */
 }
+.carousel{
+    margin-left: 25%;
+}
+.carousel-item img{
+    margin-left: 30%;
+    width: 300px;
+    height:300px;
+}
+
+
 .gradient-bg {
     background: linear-gradient(to right, #EBE6D5, #89CBCB); /* Adjust colors as needed */
 }
-
+.footer-cen {
+    margin-left:15px;
+}

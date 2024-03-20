@@ -51,8 +51,8 @@ Route::put('/produits/{produit}',[AdminController::class, 'update'])->name('prod
 
     Route::delete('/objets/{objet}',[AdminController::class, 'destroy'])->name('objets.destroy');
 
-    Route::get('/listeCommande',[AdminController::class, 'listeCommande'])->name('listeCommande')->middleware('auth');
-    Route::get('/listeUser',[AdminController::class, 'listeUser'])->name('listeUser')->middleware('auth');
+    Route::get('/listeCommande',[AdminController::class, 'listeCommande'])->name('listeCommande');
+    Route::get('/listeUser',[AdminController::class, 'listeUser'])->name('listeUser');
     
    
 

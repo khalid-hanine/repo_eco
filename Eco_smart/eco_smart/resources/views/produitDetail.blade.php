@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" type="text/css" href="{{ asset('public/css/produitDetail.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/produitDetail.css') }}">
 
 @extends('Layouts.app')
 

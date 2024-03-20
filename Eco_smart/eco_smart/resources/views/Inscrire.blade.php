@@ -16,10 +16,10 @@
     <div class="mb-3">
     <input type="password" name="password" placeholder="Mot de Pass"  class="form-control rounded-5" required>
 
+</div>
 
-    </div>
+   
     <button type="submit " class="btn btn-success" >Valider la commande</button>
-
 </form>
 
 </div>

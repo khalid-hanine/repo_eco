@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" type="text/css" href="{{ asset('public/css/panier.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/panier.css') }}">
 
 
 @extends('layouts.app')

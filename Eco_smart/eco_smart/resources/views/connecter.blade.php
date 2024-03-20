@@ -8,7 +8,7 @@
     <form action="{{route('loginUser')}}" method="POst" class=" text-center m-5">
         @csrf
         <div class="mb-3">
-            <input type="text" name="nom" placeholder="Nom" required class="form-control rounded-5">
+            <input type="text" name="name" placeholder="Nom" required class="form-control rounded-5">
         </div>
         
         <div class="mb-3">
@@ -18,6 +18,7 @@
         </div>
         <button type="submit " class="btn btn-success" >Valider la commande</button>
     <a href="{{route('inscrire')}}" class="btn btn-info w-25">Inscrire</a>
+
     </form>
     
     </div>

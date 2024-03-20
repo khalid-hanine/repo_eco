@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="{{ asset('public/css/pack.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/pack.css') }}">
 
 @extends('layouts.app')
 
