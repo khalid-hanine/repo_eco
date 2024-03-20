@@ -32,6 +32,24 @@ class AdminController extends Controller
             'password' => ['required'],
         ]);
         // dd($validatedData);
+        
+        $user = Administrator::where('name', $request->input('name'))->first();
+        // dd($user);
+        
+        if ($user && Hash::check($request->input('password'), $user->password)) {
+            return redirect()->route('index');
+
+            // Mot de passe correct
+            // Connecter l'utilisateur
+        } else {
+            return 'faux';
+
+            // Mot de passe incorrect
+            // Rediriger l'utilisateur vers la page de connexion avec un message d'erreur
+        }
+            
+        
+        
     
         
        
@@ -41,7 +59,7 @@ class AdminController extends Controller
     
         
 
-        // return view('Layouts.appAdmin');
+        
     
     public function index(){
         $productsFromDB=Produit::all();

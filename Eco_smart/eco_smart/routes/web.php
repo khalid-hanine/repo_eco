@@ -3,7 +3,7 @@
     use Illuminate\Support\Facades\Route;
     use App\Http\Controllers\ProduitController;
     use App\Http\Controllers\AdminController;
-
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -37,8 +37,10 @@
          Route::get('/admin',[AdminController::class, 'admin'])->name(name:'admin');
     Route::post('/adminInfo',[AdminController::class, 'adminInfo'])->name(name:'adminInfo');  
 
-    Route::get('/index',[AdminController::class, 'index'])->name(name:'index');  
-// ->middleware('auth')
+    Route::get('/index',[AdminController::class, 'index'])->name(name:'index');
+  // 
+    
+// 
     Route::get('/admin/create',[AdminController::class, 'create'])->name(name:'Admin.create');
     Route::post('/objet', [AdminController::class, 'store'])->name('objet.store');
 
@@ -57,6 +59,8 @@ Route::put('/produits/{produit}',[AdminController::class, 'update'])->name('prod
     //_____________________________________
 
    Route::get('/connecter',[ProduitController::class, 'connecter'])->name(name:'connecter'); 
+   Route::post('/loginUser',[ProduitController::class, 'loginUser'])->name(name:'loginUser'); 
+
 
    Route::get('/inscrire/create',[ProduitController::class, 'inscrire'])->name(name:'inscrire');
    

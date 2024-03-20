@@ -114,6 +114,9 @@ class ProduitController extends Controller
         
         return view('connecter');
     }
+    public function loginUser(){
+        return 'jhghghgfhg';
+    }
     
     public function inscrire(){
         return view('inscrire');
