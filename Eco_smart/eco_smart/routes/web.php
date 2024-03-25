@@ -16,8 +16,18 @@
     |
     */
     Route::get('/', [ProduitController::class,'intro'])->name(name:'intro');
+   
+
     
     Route::get('/acceuil', [ProduitController::class,'acceuil'])->name(name:'acceuil');
+    //_____________________
+    Route::get('/secteurs/{secteur}', [ProduitController::class,'secteur'])->name(name:'secteur');
+
+
+
+
+
+    //_____________________
    
 
 
@@ -25,6 +35,8 @@
     Route::get('/produits/{produit}', [ProduitController::class,'produitDetail'])->name(name:'produitDetail');
 
     Route::get('/panier', [ProduitController::class,'panier'])->name(name:'panier');
+    Route::put('/panier/{id}', [ProduitController::class,'updateQuantity'])->name('updateQuantity');
+
     //___________________________________
     Route::post('/ajouterPanier', [ProduitController::class,'ajouterPanier'])->name(name:'ajouterPanier');
     //_____________________________________
@@ -53,6 +65,14 @@ Route::put('/produits/{produit}',[AdminController::class, 'update'])->name('prod
 
     Route::get('/listeCommande',[AdminController::class, 'listeCommande'])->name('listeCommande');
     Route::get('/listeUser',[AdminController::class, 'listeUser'])->name('listeUser');
+
+    Route::get('/profil',[AdminController::class, 'profil'])->name('profil');
+Route::get('/profil/{image}/edit', [AdminController::class, 'editImage'])->name('editImage');
+Route::put('/profil/{image}',[AdminController::class, 'updateImage'])->name('image.update');
+
+
+
+
     
    
 

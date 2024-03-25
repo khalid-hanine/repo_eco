@@ -1,21 +1,60 @@
-#divCard{
+
+
+.descriptionD {
+  margin-bottom: 10px;
+}
+
+.priceD {
+  margin-bottom: 10px;
+  font-weight:300px;
+  font-size: 30px;
+}
+
+.titleD {
  
-    margin-left: 15px ;
-    margin-bottom: 15px;
-   align-items: center;
-   text-align: center;
-   padding-top: 10px;
-   height: 350px;
-    
+
+  font-weight: bold;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 45px; /* Augmenter la taille du titre */
 }
-#quantite{
-    width: 30%;
-    height: 22%;
-    border-radius: 4px;
-    margin-right: 20px;
-    margin-bottom: 10px;
+
+#quantite {
+  width: 70px; /* Réduire la largeur de l'entrée de quantité */
+  height: 40px;
+  border-radius: 4px;
+  margin-bottom: 10px;
 }
-#voirPlus{
-    width: 25%;
-    margin-left: 40%;
+
+.add-to-cart {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+
+/* _______________ */
+.img {
+  height: 37%;
+  margin-bottom: 27px;
+  border-radius: 10px;
+
+}
+
+.img-principal {
+  height: 79%;
+  box-shadow: 10px 12px 13px rgb(221, 240, 243);
+  border-radius: 10px;
+}
+
+.thumbnail-container {
+  
+}
+
+.thumbnail {
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.thumbnail:hover {
+  transform: scale(1.1);
 }

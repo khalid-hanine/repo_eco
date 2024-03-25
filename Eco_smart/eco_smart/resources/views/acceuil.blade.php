@@ -17,7 +17,10 @@
 <main>
 
     <section class="containner">
-        <img src="{{ asset('images/produits/cover.png') }}" class="d-block w-100" alt="Logo" id="cover">
+        {{-- <img src="{{ asset('images/produits/cover.png') }}" class="d-block w-100" alt="Logo" id="cover"> --}}
+        @foreach($cover as $profil) 
+        <img src="{{ asset($profil->images) }}" class="d-block w-100" alt="Logo" id="cover">
+        @endforeach
         <br>
         
         <h1 class="text-center mt-4">les activites</h1>
@@ -27,23 +30,22 @@
                 <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                
             </div>
             <div class="carousel-inner">
-
+                @foreach($slide as $profil) 
                 <div class="carousel-item  active" data-bs-interval="2000">
-                    <img src="{{ asset('images/produits/img1.png') }}" class="d-block " alt="">
-
-
+                    <img src="{{ asset($profil->images) }}" class="d-block " alt="">
                 </div>
-                <div class="carousel-item" data-bs-interval="2000">
+                @endforeach
+                {{-- <div class="carousel-item" data-bs-interval="2000">
                     <img src="{{ asset('images/produits/img2.jpg') }}" class="d-block " alt="">
-
                 </div>
                 <div class="carousel-item" data-bs-interval="2000">
                     <img src="{{ asset('images/produits/img3.jpg') }}" class="d-block " alt="">
-
-                </div>
+                </div> --}}
             </div>
             <button class="   carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                 <span class=" bg-primary carousel-control-prev-icon" aria-hidden="true"></span>
@@ -56,6 +58,23 @@
         </div><br>
         
     <section>
+        <div class="container">
+            <h1>Secteurs</h1>
+            <div class="row">
+               
+
+            @foreach($secteurs as $secteur)
+            
+            <a href="{{route('secteur',$secteur->id)}}"><img class="col-4 p-2 " src="{{ asset($secteur->imageSecteur) }}" alt="..."></a>
+                   
+
+            @endforeach
+ 
+                </div>
+            
+
+
+        </div>
         <h1 class="text-center mb-4" id='titleProduit'>NOT PRODUITS</h1>
 
  <div class="row"> 

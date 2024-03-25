@@ -8,6 +8,10 @@ use App\Models\Produit;
 use App\Models\Panier;
 use App\Models\Commande;
 use App\Models\User;
+use App\Models\Profil;
+use App\Models\Activite;
+
+
 
 
 
@@ -21,13 +25,28 @@ class ProduitController extends Controller
     public function intro(){
         return view('layouts.intro');
     }
+    //____________________________acceuil__________________________
     public function acceuil(){
+        $cover=Profil::where('type','cover')->get();
+        $slide=Profil::where('type','slide')->get();
+
+        $secteurFromDB=Activite::all();
+
         $produitsFromDB = Produit::where('type', 'produit')->take(3)->get();
         $packFromDB = Produit::where('type', 'pack')->take(1)->get();
 
 
-        return view('acceuil',['produits' => $produitsFromDB,'pack' =>$packFromDB]);
+        return view('acceuil',['produits' => $produitsFromDB,'pack' =>$packFromDB,'slide'=>$slide,'cover'=>$cover,'secteurs'=>$secteurFromDB]);
     }
+    public function secteur($secteurId){
+        // dd($secteurId);
+        $secteur = Activite::find($secteurId);
+        // dd($secteur);
+
+        return view('Layouts.pack_Secteur',['secteur'=>$secteur]);
+    }
+
+    //__________________________________
     //_______________test
    
 
@@ -64,6 +83,29 @@ class ProduitController extends Controller
         // dd($panierFromDB);
         return view('panier',['panier'=>$panierFromDB,'totalCommande'=>$totalCommande]);
     }
+    public function updateQuantity(Request $request, $id) {
+        $panierItem = Panier::find($id);
+        if (!$panierItem) {
+            return redirect()->back()->with('error', 'L\'élément du panier n\'a pas été trouvé.');
+        }
+    
+        // Sauvegardez l'ancienne quantité et le total
+        $oldQuantity = $panierItem->quantite;
+        $oldTotal = $panierItem->total;
+    
+        // Mettez à jour la quantité avec la nouvelle valeur
+        $panierItem->quantite = $request->input('quantity');
+    
+        // Recalculez le total avec la nouvelle quantité
+        $panierItem->total = ($panierItem->quantite / $oldQuantity) * $oldTotal;
+    
+        // Enregistrez les modifications dans la base de données
+        $panierItem->save();
+    
+        // Redirigez l'utilisateur vers la page panier avec un message de succès
+        return redirect()->route('panier')->with('success', 'Quantité mise à jour avec succès.');
+    }
+    
 
     //___________________________________________
 
@@ -157,15 +199,13 @@ Commande::create([
             foreach ($panier as $item) {
           
                 $whatsappMessage .= "\nNom du produit : " . $item->produit->nom;
-                $whatsappMessage .= "\nDescription : " . $item->produit->description;
+                
                 $whatsappMessage .= "\nPrix : " . $item->produit->prix;
                 
             }
-    
             $whatsappMessage .= "\nTotal : " . $total;
-
             $encodedMessage = urlencode($whatsappMessage);
-            $whatsappNumber = '+212665413778'; 
+            $whatsappNumber = '+21265413778'; 
             $whatsappURL = "https://wa.me/{$whatsappNumber}/?text={$encodedMessage}";
     
             Panier::truncate();
@@ -248,7 +288,7 @@ Commande::create([
             $whatsappMessage .= "\nTotal : " . $total;
 
             $encodedMessage = urlencode($whatsappMessage);
-            $whatsappNumber = '+212665413778'; 
+            $whatsappNumber = '+212628708932'; 
             $whatsappURL = "https://wa.me/{$whatsappNumber}/?text={$encodedMessage}";
     
             Panier::truncate();

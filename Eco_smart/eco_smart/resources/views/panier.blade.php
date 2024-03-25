@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" type="text/css" href="{{ asset('css/panier.css') }}">
 
 
@@ -43,8 +42,16 @@
         
         <td>{{$item->produit? $item->produit->description:"not found"}}</td>
         <td>{{$item->produit? $item->produit->prix:"not found"}}</td>
-        <td>{{$item->produit? $item->quantite:"not found"}}</td>
+        {{-- <td>{{$item->produit? $item->quantite:"not found"}}</td> --}}
+        <td>
+          <form id="updateQuantityForm{{ $item->id }}" action="{{ route('updateQuantity', $item->id) }}" method="POST">
+              @csrf
+              @method('PUT')
+              <input type="number" name="quantity" value="{{ $item->quantite }}" onchange="submitForm({{ $item->id }})">
+          </form>
+      </td>
         <td>{{$item->produit? $item->total:"not found"}}</td>
+        
         <td>
           
         <a href="{{route('SuppProPanier',$item->id)}}">
@@ -61,6 +68,11 @@
 
       </tr>
         @endforeach
+        <script>
+          function submitForm(itemId) {
+              document.getElementById('updateQuantityForm' + itemId).submit();
+          }
+      </script>
       
      
      
@@ -83,4 +95,4 @@
 
 
 
-  @endsection
+  @endsection 

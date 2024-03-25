@@ -12,6 +12,8 @@ use App\Models\Commande;
 use App\Models\Panier;
 use App\Models\User;
 use App\Models\Administrator;
+use App\Models\Profil;
+
 
 
 
@@ -20,11 +22,49 @@ use App\Models\Administrator;
 
 class AdminController extends Controller
 {
+    public function profil(){
+        $cover=Profil::where('type','cover')->get();
+        $slide=Profil::where('type','slide')->get();
+        return view('Admin.interfaceHome',['slide'=> $slide,'cover'=>$cover]);
+    }
+    public function editImage(Profil $image){
+        // dd($image);
+        $imageDB=Profil::where('id',$image->id)->get();
+        // dd($imageDB);
+
+        return view('Admin.editImage',['imageDB'=>$imageDB,'image'=>$image]);
+    }
+    //______________________________________________________________________
+    public function updateImage(Request $request ,$imageId){
+        $validatedData = $request->validate([
+            
+            'image' => 'image|mimes:png,jpg,jpeg,webp,WEBP',
+
+        ]);
+        $image = Profil::find($imageId);
+        // dd($image);
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $path = 'images/profilSite';
+            $file->move($path, $filename);
+            $image->images = $path . '/' . $filename;
+        }else{
+            return 'non';
+        }
+        $image->save();
+        return redirect()->route('profil');
+
+
+
+    }
+    //______________________________________________________________________
     public function admin(){
         
 
         return view('Admin.loginAdmin');
     }
+
     public function adminInfo(Request $request){
        
         $validatedData = $request->validate([
@@ -85,6 +125,7 @@ class AdminController extends Controller
             'image2' => 'required|image|mimes:png,jpg,jpeg,webp,WEBP',
             'image3' => 'required|image|mimes:png,jpg,jpeg,webp,WEBP',
             'prix' => ['required'],
+            'prixRemise'=>['required'],
             'type' => ['required']
         ]);
     
@@ -107,6 +148,8 @@ class AdminController extends Controller
             'nom' => $validatedData['nom'],
             'description' => $validatedData['description'],
             'prix' => $validatedData['prix'],
+            'prixRemise' => $validatedData['prixRemise'],
+
             'type' => $validatedData['type']
         ];
     
@@ -138,6 +181,8 @@ public function update(Request $request ,$produitId){
             'image3' => 'image|mimes:png,jpg,jpeg,webp,WEBP',
 
             'prix' => ['required'],
+            'prixRemise'=>['required'],
+
             'type' => ['required']
         ]);
     
@@ -148,6 +193,8 @@ public function update(Request $request ,$produitId){
         $produit->nom = $validatedData['nom'];
         $produit->description = $validatedData['description'];
         $produit->prix = $validatedData['prix'];
+        $produit->prixRemise = $validatedData['prixRemise'];
+
         $produit->type = $validatedData['type'];
     
         // Traiter l'image si elle est présente
@@ -208,6 +255,8 @@ public function listeCommande(){
 public function listeUser(){
     $users=User::all();
     return view('Admin.listeUser',['users'=>$users]);
+
+    
 
 }
 }

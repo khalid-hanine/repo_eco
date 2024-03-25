@@ -14,6 +14,11 @@
                     <div class="position-sticky">
                         <ul class="nav flex-column">
                             <li class="nav-item">
+                                <a class="nav-link text-light" href="{{route('profil')}}">
+                                    Profil_Site
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link active text-light" aria-current="page" href="{{route('index')}}">
                                     Produits
                                 </a>

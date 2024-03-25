@@ -28,26 +28,30 @@ Create
     </div>
     <div class="mb-3">
         <label class="form-label">Image</label>
-        <input type="file" class="form-control" name="image">
+        <input type="file" class="form-control" name="image" value="{{ old('image') }}">
     </div>
     <div class="mb-3">
         <label class="form-label">Image 2</label>
-        <input type="file" class="form-control" name="image2">
+        <input type="file" class="form-control" name="image2" value="{{ old('image2') }}">
     </div><div class="mb-3">
         <label class="form-label">Image 3</label>
-        <input type="file" class="form-control" name="image3">
+        <input type="file" class="form-control" name="image3" value="{{ old('image3') }}">
     </div>
     <div>
         <p>Type de produit:</p>
-        <input type="radio" id="pack" name="type" value="pack" >
+        <input type="radio" id="pack" name="type" value="pack" {{ old('type') == 'pack' ? 'checked' : '' }}>
         <label for="pack">Pack</label>
         <br>
-        <input type="radio" id="produit" name="type" value="produit">
+        <input type="radio" id="produit" name="type" value="produit"  {{ old('type') == 'produit' ? 'checked' : '' }}>
         <label for="produit">Produit</label>
     </div>
     <div class="mb-3">
         <label class="form-label">Prix</label>
         <input type="text" class="form-control" name="prix" value="{{ old('prix') }}">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Prix_Remise</label>
+        <input type="text" class="form-control" name="prixRemise" value="{{ old('prixRemise') }}">
     </div>
     <button type="submit" class="btn btn-success">Submit</button>
 </form>

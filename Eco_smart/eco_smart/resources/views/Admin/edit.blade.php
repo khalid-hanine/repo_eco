@@ -58,6 +58,10 @@ edit
         <label class="form-label">Prix</label>
         <input type="text" class="form-control" name="prix" value="{{$produit->prix}}">
     </div>
+    <div class="mb-3">
+        <label class="form-label">Prix_Remise</label>
+        <input type="text" class="form-control" name="prixRemise"  value="{{$produit->prixRemise}}">
+    </div>
     <button type="submit" class="btn btn-success">Submit</button>
 </form>
 @endsection
