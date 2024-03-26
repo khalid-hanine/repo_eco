@@ -1,0 +1,30 @@
+.dash
+{
+    margin-top:10px;
+    padding: 0px;
+    padding-left: 0;
+    margin-left: 0%;
+    background-color: #0fa5ea;
+    border-radius: 20px;
+    width: 90%;
+    box-shadow:5px 5px 13px rgb(0, 187, 255)
+}
+.dash #add a{
+    margin-left:75%;
+    margin-top:1%;
+    border-radius: 20px;
+}
+
+
+.dash table
+{
+
+    margin-left: 0px;
+    width: 100%;
+}
+.dash table th
+{
+    border-radius: 20px ;
+    background-color:#0fa5ea;
+     color:aliceblue;
+}

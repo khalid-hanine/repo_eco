@@ -53,6 +53,29 @@ edit
         <br>
         <input type="radio" id="produit" name="type" value="produit" @if($produit->type == 'produit') checked @endif>
         <label for="produit">Produit</label>
+        <br>
+        <input type="radio" id="accessoire" name="type" value="accessoire"  @if($produit->type == 'accessoire') checked @endif  >
+        <label for="produit">accessoire</label>
+    </div>
+    <div>
+        <h2>Type de secteur:</h2>
+        <input type="radio" id="cafe" name="typeS" value="cafe" @if($produit->typeS == 'cafe') checked @endif >
+        <label for="pack">Cafe</label>
+        <br>
+        <input type="radio" id="boulangerie" name="typeS" value="boulangerie" @if($produit->typeS == 'boulangerie') checked @endif >
+        <label for="produit">boulangerie</label>
+        <br>
+        <input type="radio" id="CentreB" name="typeS" value="CentreB" @if($produit->typeS == 'CentreB') checked @endif >
+        <label for="produit">Centre beauté</label>
+        <br>
+        <input type="radio" id="coiffeur" name="typeS" value="coiffeur" @if($produit->typeS == 'coiffeur') checked @endif >
+        <label for="produit">coiffeur</label>
+        <br>
+        <input type="radio" id="boucherie" name="typeS" value="boucherie" @if($produit->typeS == 'boucherie') checked @endif >
+        <label for="produit">boucherie</label>
+        <br>
+        <input type="radio" id="supermarche" name="typeS" value="supermarche" @if($produit->typeS == 'supermarche') checked @endif >
+        <label for="produit">supermarche</label>
     </div>
     <div class="mb-3">
         <label class="form-label">Prix</label>

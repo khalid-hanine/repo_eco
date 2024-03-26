@@ -33,7 +33,7 @@ class ProduitController extends Controller
         $secteurFromDB=Activite::all();
 
         $produitsFromDB = Produit::where('type', 'produit')->take(3)->get();
-        $packFromDB = Produit::where('type', 'pack')->take(1)->get();
+        $packFromDB = Produit::where('type', 'pack')->take(3)->get();
 
 
         return view('acceuil',['produits' => $produitsFromDB,'pack' =>$packFromDB,'slide'=>$slide,'cover'=>$cover,'secteurs'=>$secteurFromDB]);
@@ -41,9 +41,12 @@ class ProduitController extends Controller
     public function secteur($secteurId){
         // dd($secteurId);
         $secteur = Activite::find($secteurId);
-        // dd($secteur);
+        $produits = Produit::where('typeS', $secteur->nomSecteur)->get();
+        $accessoire = Produit::where('type', 'accessoire')->get();
 
-        return view('Layouts.pack_Secteur',['secteur'=>$secteur]);
+        
+
+        return view('Layouts.pack_Secteur',['secteur'=>$secteur ,'pack'=>$produits,'accessoires'=>$accessoire]);
     }
 
     //__________________________________
@@ -147,8 +150,28 @@ class ProduitController extends Controller
         return to_route('panier');
 
     }
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+    public function connecterIDproduit($prodID){
+        // dd($prodID);
+        $prodIDFB=Produit::findOrFail($prodID);
+        Panier::create([
+            'produit_id' => $prodIDFB->id,
+            'total' =>$prodIDFB->prix,
+            'quantite' =>1
+    
 
+        ]);
+        return to_route('connecter');
+        
+
+
+       
+        // dd($prodIDFB->nom);
+
+    }
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
     public function connecter(){
+        
         
         return view('connecter');
     }
@@ -232,14 +255,14 @@ Commande::create([
        
         $validatedData = $request->validate([
             'nom' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'tele' => ['required'],
             'password' => ['required', 'string']
         ]);
         
           
         $user = User::create([
             'name' => $validatedData['nom'],
-            'email' => $validatedData['email'],
+            'tele' => $validatedData['tele'],
             'password' => Hash::make($validatedData['password']), 
         ]);
     

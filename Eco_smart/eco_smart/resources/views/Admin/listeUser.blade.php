@@ -7,7 +7,7 @@
             <th scope="col">id</th>
             <th scope="col">nom</th>
 
-            <th scope="col">email</th>
+            <th scope="col">tele</th>
             <th scope="col">password</th>
             <th scope="col">created_at</th>
             
@@ -18,7 +18,7 @@
         <tr>
             <td>{{ $user->id }}</td>
             <td>{{ $user->name }}</td>
-            <td>{{ $user->email }}</td>
+            <td>{{ $user->tele }}</td>
 
             <td>
                 {{$user->password}}

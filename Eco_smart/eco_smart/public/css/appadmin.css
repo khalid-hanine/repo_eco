@@ -1,0 +1,60 @@
+#sidebarMenu {
+    margin-top: 10px;
+    margin-left: 25px;
+    padding-left: 2px;
+    background: #0fa5ea;
+    color: white;
+
+    border-top-left-radius: 2rem;
+    width: 200px;
+    box-shadow:5px 5px 13px rgb(0, 187, 255)
+  }
+
+  #sidebarMenu a {
+    margin-top: 5px;
+    margin-left: 20px;
+    color: inherit;
+    display: block;
+    padding: 0.75rem 0.5rem 0.75rem 2rem;
+    position: relative;
+    text-decoration: none;
+  }
+
+  #sidebarMenu a:hover {
+    color: #0fa5ea;
+  }
+
+  /* Apply background gradient to all li elements with .clicked class */
+  #sidebarMenu li.clicked a {
+    background: linear-gradient(to right, transparent, #c3bc0b);
+  }
+
+  #sidebarMenu .active > a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #cdb746;
+    width: 5px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+  main{
+    margin-top: 6px;
+    padding: 0px;
+  }
+
+  /* Adjusting main content to be on the same row as sidebar */
+  @media (max-width: 992px) {
+    #sidebarMenu {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  #al h1{
+    color: #ebc908;
+    margin-left: 35%;
+   margin-top: 30px;
+  }

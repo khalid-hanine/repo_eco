@@ -79,6 +79,8 @@ Route::put('/profil/{image}',[AdminController::class, 'updateImage'])->name('ima
     //_____________________________________
 
    Route::get('/connecter',[ProduitController::class, 'connecter'])->name(name:'connecter'); 
+   Route::get('/connecter/{id}',[ProduitController::class, 'connecterIDproduit'])->name(name:'connecterIDproduit'); 
+
    Route::post('/loginUser',[ProduitController::class, 'loginUser'])->name(name:'loginUser'); 
 
 

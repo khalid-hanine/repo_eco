@@ -126,8 +126,11 @@ class AdminController extends Controller
             'image3' => 'required|image|mimes:png,jpg,jpeg,webp,WEBP',
             'prix' => ['required'],
             'prixRemise'=>['required'],
-            'type' => ['required']
+            'type' => ['required'],
+            'typeS' => ['required']
+
         ]);
+        // dd($validatedData);
     
         // Initialiser un tableau pour stocker les chemins d'images
         $imagePaths = [];
@@ -150,8 +153,11 @@ class AdminController extends Controller
             'prix' => $validatedData['prix'],
             'prixRemise' => $validatedData['prixRemise'],
 
-            'type' => $validatedData['type']
+            'type' => $validatedData['type'],
+            'typeS' => $validatedData['typeS'] ?? null,
+
         ];
+        // dd($produitData);
     
         // Ajouter les chemins d'images au tableau de données du produit
         foreach ($imagePaths as $field => $path) {
@@ -183,8 +189,10 @@ public function update(Request $request ,$produitId){
             'prix' => ['required'],
             'prixRemise'=>['required'],
 
-            'type' => ['required']
+            'type' => ['required'],
+            'typeS' => ['required']
         ]);
+        
     
         // Rechercher le produit à mettre à jour
         $produit = Produit::find($produitId);
@@ -196,6 +204,8 @@ public function update(Request $request ,$produitId){
         $produit->prixRemise = $validatedData['prixRemise'];
 
         $produit->type = $validatedData['type'];
+        $produit->type = $validatedData['typeS'];
+
     
         // Traiter l'image si elle est présente
         if ($request->hasFile('image')) {

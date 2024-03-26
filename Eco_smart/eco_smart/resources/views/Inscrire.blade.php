@@ -25,9 +25,9 @@
                     <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="nom" required/>
                   </div>
                   <div class="form-outline mb-4">
-                    <label class="form-label" for="form3Example1cg">Your Email</label>
+                    <label class="form-label" for="form3Example1cg">tele</label>
   
-                    <input type="email" id="form3Example1cg" class="form-control form-control-lg" name="email" required/>
+                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="tele" required/>
                   </div>
   
                   

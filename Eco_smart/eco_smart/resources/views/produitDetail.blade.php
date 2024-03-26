@@ -14,7 +14,11 @@
     </div>
     @endif
 </div>
+
+
+{{-- _____________________ --}}
 <div class="row m-5 h-50  p-2 " >
+
     
     <div class="col-lg-2 col-md-2 col-sm-4 ">
         <div class=" thumbnail-container ">
@@ -60,7 +64,7 @@
         
 
 </div>
-
+{{-- //____________________________ --}}
 @foreach ($produitsFromDB as $produit)
     <div class="card col-3" style="width: 18rem;" id="divCard">
         <a href="{{ route('produitDetail', $produit->id) }}">
@@ -98,5 +102,6 @@
 
     </script>
     {{-- ________________ --}}
+
    
 @endsection

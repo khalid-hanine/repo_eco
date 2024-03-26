@@ -6,7 +6,7 @@
 @section('content')
 
 
-<div class="container">
+<div class="container " style="margin-bottom: 200px">
   <h1 class="text-center ">Votre Commande</h1><br>
   
   
@@ -40,7 +40,7 @@
     </td>
     
         
-        <td>{{$item->produit? $item->produit->description:"not found"}}</td>
+        <td>{{$item->produit? $item->produit->nom:"not found"}}</td>
         <td>{{$item->produit? $item->produit->prix:"not found"}}</td>
         {{-- <td>{{$item->produit? $item->quantite:"not found"}}</td> --}}
         <td>

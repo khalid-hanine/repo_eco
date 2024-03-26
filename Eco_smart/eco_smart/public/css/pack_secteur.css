@@ -1,0 +1,38 @@
+/* CSS pour la vue pack_secteur.blade.php */
+
+/* Style pour l'image principale */
+.img-principal {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style pour le formulaire d'ajout au panier */
+#quantitepack {
+    width: 70px;
+    height: 40px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+#ajouterAuPanier {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#ajouterAuPanier:hover {
+    background-color: #0056b3;
+}
+
+/* Style pour la carte accessoire */
+.card {
+    width: 10rem; /* Définissez la largeur de la carte ici */
+    height: auto; /* Ajustez la hauteur en fonction de votre contenu */
+    margin-bottom: 20px; /* Ajoutez de l'espace entre les cartes */
+}
