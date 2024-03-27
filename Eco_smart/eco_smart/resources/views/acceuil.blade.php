@@ -370,7 +370,7 @@
     </div>
     <div class="pack-section">
         <div class="container">
-            <h1 class="text-center mb-4" id='titleProduit'>NOT PACKS</h1>
+            <h1 class="text-center mb-4" id='titleProduit'>NOs PACKS</h1>
     <div class="row">
 
 

@@ -10,7 +10,7 @@
 
 </head>
 <body>
-    <div class="me">
+   <div class="me">
         <nav class="navbar navbar-expand-sm navbar-light fixed-top">
 
             <div class="container-fluid ">
@@ -39,17 +39,20 @@
 
                     <a class="nav-link" href="{{ route('panier') }}" id="addToCartButton">
 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-cart" viewBox="0 0 16 16">
+                        {{-- <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-cart" viewBox="0 0 16 16">
                             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-                        </svg>
+                        </svg> --}}
+                        <i class="fas fa-shopping-cart"></i>
                     </a>
                 </div>
             </div>
         </nav>
     </div>
-    <!-- Your page content goes here -->
+ 
+
 
     <div class="container-fluid" id="contentSection">
+
        
       
        
@@ -70,10 +73,10 @@
 
 
 
-<hr>
 
 
-<footer class="footer-section" id="foter">
+
+<footer class="footer-section" style=" margin-top: 800px;" id="foter">
     <div class="container relative">
         <div class="row g-5 mb-5">
             <div class="col-lg-4">
@@ -171,6 +174,8 @@ addToCartButton.addEventListener('click', function() {
     // Update the cart item count span
     document.getElementById('cartItemCount').textContent = clickCount.toString();
 });
+
+
 
 
     </script>

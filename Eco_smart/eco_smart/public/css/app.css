@@ -182,11 +182,12 @@ background-color: #088dc2;
 
 
 .footer-section {
+ 
 
 height: 100px;
 margin-left: 45px;
     padding:0px 0;
-    background: #a0a2a2; }
+    background: #fdfdfd; }
     .footer-section .relative {
       position: relative; }
       .footer-section h3 {
@@ -243,3 +244,5 @@ margin-left: 45px;
       .footer-section .border-top.copyright {
 
         font-size: 14px !important; }
+
+
