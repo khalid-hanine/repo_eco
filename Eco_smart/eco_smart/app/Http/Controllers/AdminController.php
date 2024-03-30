@@ -204,7 +204,7 @@ public function update(Request $request ,$produitId){
         $produit->prixRemise = $validatedData['prixRemise'];
 
         $produit->type = $validatedData['type'];
-        $produit->type = $validatedData['typeS'];
+        $produit->typeS = $validatedData['typeS'];
 
     
         // Traiter l'image si elle est présente

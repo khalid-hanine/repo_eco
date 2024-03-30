@@ -3,7 +3,17 @@
 
 @extends('layouts.app')
 
+
+
 @section('content')
+<div class="mt-5">
+  @if (session('message'))
+    <div class="alert alert-danger">
+        {{ session('message') }}
+    </div>
+  @endif
+</div>
+
 
 
 
@@ -16,6 +26,9 @@
           <div class="card " style="border-radius: 15px;">
             <div class="card-body p-5">
               <h2 class=" text-center mb-5">Log in</h2>
+              @if (session('error'))
+                <div class="alert alert-danger">{{ session('error') }}</div>
+            @endif
 
               <form action="{{route('loginUser')}}" method="POst">
                 @csrf
@@ -27,6 +40,12 @@
                   <label class="form-label mt-1" for="form3Example4cg">Password</label>
                   <input type="password" id="form3Example4cg" class="form-control form-control-lg" name="password"/>
                 </div>
+                @error('message')
+                <div style="color: red; ">{{ $message }}</div>
+            @enderror
+            @error('messageP')
+                <div style="color: red; ">{{ $message }}</div>
+            @enderror
                 <div class="d-flex justify-content-center mt-3">
                   <button  type="submit " class="btn  btn-block btn-lg gradient-custom-4 text-body" id="btn">
                     Valider la commande

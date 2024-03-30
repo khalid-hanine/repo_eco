@@ -14,35 +14,36 @@
         <nav class="navbar navbar-expand-sm navbar-light fixed-top">
 
             <div class="container-fluid ">
-                <a href="#" class="navbar-brand">
-                    <img src="{{ asset('images/logo.png') }}" alt="Logo" width="90" height="80" style="margin-top: -12px;" class="d-inline-block fixed-top">
+                <a href="#" class="navbar-brand ">
+                    <img src="{{ asset('images/logo.png') }}" alt="Logo" width="90" height="80" style="margin-top: -13px;" class="d-inline-block fixed-top ms-5 ">
                 </a>
                 <button class="navbar-toggler" style="margin-top: -5px;" type="button" onclick="toggleMenu()" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse fixed-menu " id="navbarNav">
-                    <ul class="navbar-nav me-auto mb-1 mb-lg-0 ">
+                    <ul class="navbar-nav me-auto mb-1  mb-lg-0 ">
                         <li class="nav-item ">
-                            <a class="nav-link" href="{{ route('acceuil') }}">ACCEUIL</a>
+                            <a class="nav-link" href="{{ route('acceuil') }}">Acceuil</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('pack') }}" >PACKS</a>
+                        <li class="nav-item ms-2">
+                            <a class="nav-link" href="{{ route('pack') }}" >Packs</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('produits') }}" >PRODUITS</a>
+                        <li class="nav-item ms-2">
+                            <a class="nav-link" href="{{ route('produits') }}" >Produits</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('produits') }}" >INFORMATIONS</a>
+                        <li class="nav-item ms-2">
+                            <a class="nav-link" href="{{ route('infos') }}" >Infos</a>
                         </li>
                     </ul>
+                    <span id="cartCounter" class="counter-span text-center" style="background-color: #ffd000; width:20px;border-radius:50%">0</span>
 
                     <a class="nav-link" href="{{ route('panier') }}" id="addToCartButton">
 
-                        {{-- <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-cart" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-cart " viewBox="0 0 16 16">
                             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-                        </svg> --}}
-                        <i class="fas fa-shopping-cart"></i>
+                        </svg> 
+                        {{-- <i class="fas fa-shopping-cart "></i> --}}
                     </a>
                 </div>
             </div>
@@ -51,7 +52,7 @@
  
 
 
-    <div class="container-fluid" id="contentSection">
+    <div class="container-fluid justify-content-center align-items-center" id="contentSection">
 
        
       
@@ -75,34 +76,31 @@
 
 
 
+<footer class="footer-section" style=" margin-top: 600px;" id="foter">
+<hr>
 
-<footer class="footer-section" style=" margin-top: 800px;" id="foter">
-    <div class="container relative">
+    <div class="container ">
         <div class="row g-5 mb-5">
-            <div class="col-lg-4">
-                <div class="mb-4 footer-logo-wrap" style="margin-top: 54"><a href="#" class="footer-logo">SMART CAISSE<span>.</span></a>
-                </div>
-                    <div  class="col-md-6">
-                        <p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant</p>
+            <div class=" col-md-4 col-sm-6 footer-logo-wrap">
+                
+                    <a href="#" class="footer-logo ">SMART CAISSE</a>
+                    <p class="mb-4 ">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant</p>
 
-                    </div>
+                
+                    
             </div>
 
-            <div class="col-lg-8">
-                <div class="row links-wrap">
-
-
-
-                    <div class="col-6 col-sm-6 col-md-3  mb-4">
+            <div class="col-md-3 col-sm-6 links-wrap">
+                
                         <ul class="list-unstyled">
-                            <h3>Quick Links</h3>
-                            <li><a  href="{{ route('acceuil') }}">ACCAUIL</a></li>
-                            <li><a  href="{{ route('pack') }}">PACK</a></li>
-                            <li><a  href="{{ route('produits') }}">PRODUIT</a></li>
-                            <li><a  href="{{ route('acceuil') }}">INFORMATIONS</a></li>
+                            <h3 class="">Quick Links</h3>
+                            <li><a  href="{{ route('acceuil') }}">-Acceuil</a></li>
+                            <li><a  href="{{ route('pack') }}">-Packs</a></li>
+                            <li><a  href="{{ route('produits') }}">-Produits</a></li>
+                            <li><a  href="{{ route('infos') }}">-Infos</a></li>
                         </ul>
                     </div>
-   <div class="col-5 col-sm-6 col-md-4  mb-4">
+   <div class="  col-md-3 col-sm-8  mb-4">
                         <ul class="list-unstyled">
                             <h3>Contact</h3>
                             <li > <span style="color: #31c3f4; wirth:24px; height:24px;">&#9742;</span> +212661-144882</li>
@@ -115,7 +113,7 @@
                                 </svg>  OULAD HAMDAN BM</li>
                         </ul>
                     </div>
-                    <div class="col-5 ">
+                    <div class="col-md-2 col-sm-12">
                         <ul class="list-unstyled">
                             <h3>follow Us</h3>
                             <ul class="list-unstyled custom-social">
@@ -124,7 +122,7 @@
                             </ul>
                         </ul>
                     </div>
-                </div>
+                
             </div>
         </div>
         <div class="row align-items-center">
@@ -135,7 +133,7 @@
                 </p>
                  </div>
             </div>
-    </div>
+    
 </footer>
 
 
@@ -153,27 +151,49 @@
             }, 1000); // Cacher l'alerte après 5 secondes
         });
 
+        document.addEventListener("DOMContentLoaded", function() {
+    const addToCartButtons = document.querySelectorAll('.submit-btn');
 
 
-function toggleMenu() {
-            const contentSection = document.getElementById('contentSection');
-            contentSection.classList.toggle('content-section-moved');
-        };
+    const counterSpan = document.querySelector('.counter-span');
+
+    // Function to update counter in localStorage and on the page
+    function updateCounter(count) {
+        counterSpan.textContent = count;
+        localStorage.setItem('cartCounter', count);
+    }
+
+    // Check if counter is saved in localStorage and update the counterSpan
+    if (localStorage.getItem('cartCounter')) {
+        updateCounter(parseInt(localStorage.getItem('cartCounter')));
+    }
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            let count = parseInt(counterSpan.textContent);
+            count++;
+            updateCounter(count);
+        });
+    });
 
 
-let clickCount = 0;
+    ///
 
-// Get the button element
-const addToCartButton = document.getElementById('addToCartButton');
 
-// Add click event listener to the button
-addToCartButton.addEventListener('click', function() {
-    // Increment the counter
-    clickCount++;
-
-    // Update the cart item count span
-    document.getElementById('cartItemCount').textContent = clickCount.toString();
+    // Example for removing a product from the cart (adjust according to your implementation)
+    const removeButtons = document.querySelectorAll('.remove-btn');
+    removeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            let count = parseInt(counterSpan.textContent);
+            if (count > 0) {
+                count--;
+                updateCounter(count);
+            }
+        });
+    });
 });
+
+
 
 
 

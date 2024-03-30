@@ -3,7 +3,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div id="alert-container" class="alert-container">
+<div id="alert-container" class="alert-container mt-5" style="position: absolute;top:40px;right:40px;">
     @if(session('success'))
     <div id="alert" class="alert show">
         {{ session('success') }}
@@ -13,26 +13,29 @@
 
 <div class="product-section">
     <div class="container">
-        <h1 class="text-center mb-4" id='titleProduit'>NOT PRODUITS</h1>
+        <h1 class="text-center mb-4" id='titleProduit'>Nos produits</h1>
         <div class="row">
 
             <!-- Start Column 1 -->
             @foreach ($produits as $produit)
-            <div  class="col-12 col-md-4 col-lg-3 mb-5 mt-5 mb-md-0" style="margin-top: ">
+            <div  class="col-12 col-md-4 col-lg-3 col-sm-6 mb-5 mt-5 mb-md-0" >
 
                 <div class="product-item">
                     <a href="{{ route('produitDetail', $produit->id) }}">
                     <img src="{{ asset($produit->image) }}" class="img-fluid product-thumbnail"></a>
                     <h3 class="product-title">{{ $produit->nom }}</h3>
-                    <strong class="product-price">{{ $produit->prix }} DH</strong>
-                    <form action="{{ route('ajouterPanier') }}" method="POST">
+                    <p><span class="product-price">{{$produit->prixRemise}},00DH</span> <span class="strike-text">{{ $produit->prix }},00DH </span></p>
+
+
+
+                    <form action="{{route('ajouterPanier')}}" method="POST">
                         @csrf
                         <span class="button-group">
                             <input type="hidden" name="produit_id" value="{{$produit->id}}">
                             <input type="hidden" name="produit_prix" value="{{$produit->prix}}">
                             <input type="hidden" name="quantite" value="1" min="1" id="quantite">
                             <button type="submit" class="btn submit-btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="30px" fill="yellow" class="bi bi-cart" id="bicon" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="30px" fill="white" class="bi bi-cart" id="bicon" viewBox="0 0 16 16">
                                     <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
                                 </svg>
                             </button>
@@ -43,7 +46,7 @@
                             </button>
                         </span> </form>
 
-                        
+
                 </div>
 
             </div>

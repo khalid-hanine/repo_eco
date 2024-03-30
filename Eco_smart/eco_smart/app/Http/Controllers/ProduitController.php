@@ -19,6 +19,8 @@ use App\Models\Activite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+use function Laravel\Prompts\alert;
+
 class ProduitController extends Controller
 {
 
@@ -33,7 +35,7 @@ class ProduitController extends Controller
         $secteurFromDB=Activite::all();
 
         $produitsFromDB = Produit::where('type', 'produit')->take(3)->get();
-        $packFromDB = Produit::where('type', 'pack')->take(3)->get();
+        $packFromDB = Produit::where('type', 'pack')->take(6)->get();
 
 
         return view('acceuil',['produits' => $produitsFromDB,'pack' =>$packFromDB,'slide'=>$slide,'cover'=>$cover,'secteurs'=>$secteurFromDB]);
@@ -41,7 +43,7 @@ class ProduitController extends Controller
     public function secteur($secteurId){
         // dd($secteurId);
         $secteur = Activite::find($secteurId);
-        $produits = Produit::where('typeS', $secteur->nomSecteur)->get();
+        $produits = Produit::where('type','pack')->where('typeS', $secteur->nomSecteur)->get();
         $accessoire = Produit::where('type', 'accessoire')->get();
 
         
@@ -79,7 +81,9 @@ class ProduitController extends Controller
 }
    
 //_________________________________________________________________________
-
+public function infos(){
+    return view('infos');
+}
      public function panier(){
         $panierFromDB=Panier::all();
         $totalCommande=$panierFromDB->sum('total');
@@ -136,7 +140,9 @@ class ProduitController extends Controller
         ]);
 
         // return redirect()->route('produits')->with('success', 'Produit ajouté au panier avec succès');
-        return back()->with('success', 'Produit ajouté au panier avec succès');
+         return back()->with('success', 'Produit ajouté au panier avec succès');
+        
+
 
 
 
@@ -191,7 +197,8 @@ class ProduitController extends Controller
         $panier=Panier::all();
     
         if ($panier->isEmpty()) {
-            return 'pas de panier';
+            return back()->withInput()->withErrors(['messageP' => 'Vous n\'avez pas encore sélectionné aucun élément ']);
+
         } else {
             $total = 0;
     
@@ -223,26 +230,30 @@ Commande::create([
           
                 $whatsappMessage .= "\nNom du produit : " . $item->produit->nom;
                 
-                $whatsappMessage .= "\nPrix : " . $item->produit->prix;
+                $whatsappMessage .= "\nPrix : " . $item->produit->prix .",00 DH";
                 
             }
-            $whatsappMessage .= "\nTotal : " . $total;
+            $whatsappMessage .= "\nTotal : " . $total .",00 DH";
             $encodedMessage = urlencode($whatsappMessage);
-            $whatsappNumber = '+21265413778'; 
+            $whatsappNumber = '+212661144882'; 
             $whatsappURL = "https://wa.me/{$whatsappNumber}/?text={$encodedMessage}";
     
             Panier::truncate();
             return redirect()->away($whatsappURL);
         }
     }    
-    
+    return back()->withInput()->withErrors([ 'messageP' => 'Vous n\'avez pas encore sélectionné aucun élément ']);
 
 
         
         // return $utilisateur_id;
-    else {
-        return 'faux';
-    }
+    // else {
+        
+       
+    //     return back()->with('message', 'Nom d\'utilisateur ou mot de passe incorrect');
+
+
+    // }
 }   
 
     
@@ -272,7 +283,8 @@ Commande::create([
         $panier=Panier::all();
     
         if ($panier->isEmpty()) {
-            return 'pas de panier';
+            return back()->withInput()->withErrors(['messageP' => 'Nom d\'utilisateur ou mot de passe non valide']);
+
         } else {
             $total = 0;
     
@@ -303,15 +315,16 @@ Commande::create([
             foreach ($panier as $item) {
           
                 $whatsappMessage .= "\nNom du produit : " . $item->produit->nom;
-                $whatsappMessage .= "\nDescription : " . $item->produit->description;
-                $whatsappMessage .= "\nPrix : " . $item->produit->prix;
+                
+                $whatsappMessage .= "\nPrix : " . $item->produit->prix.",00 DH";
                 
             }
     
-            $whatsappMessage .= "\nTotal : " . $total;
+            $whatsappMessage .= "\nTotal : " . $total.",00 DH";
 
             $encodedMessage = urlencode($whatsappMessage);
-            $whatsappNumber = '+212628708932'; 
+            $whatsappNumber = '+212661144882'; 
+            
             $whatsappURL = "https://wa.me/{$whatsappNumber}/?text={$encodedMessage}";
     
             Panier::truncate();

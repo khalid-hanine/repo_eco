@@ -1,62 +1,137 @@
+/* .ratings i{
 
 
+  font-size: 16px;
+  color: red}
+.strike-text{
+  color: red;
+  text-decoration: line-through
+} */
 .descriptionD {
-  margin-bottom: 10px;
+margin-bottom: 10px;
 }
 
 .priceD {
-  margin-bottom: 10px;
-  font-weight:300px;
-  font-size: 30px;
+margin-bottom: 10px;
+font-weight:300px;
+font-size: 30px;
 }
 
 .titleD {
- 
 
-  font-weight: bold;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 45px; /* Augmenter la taille du titre */
+
+font-weight: bold;
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-size: 45px; /* Augmenter la taille du titre */
 }
 
 #quantite {
-  width: 70px; /* Réduire la largeur de l'entrée de quantité */
-  height: 40px;
-  border-radius: 4px;
-  margin-bottom: 10px;
+width: 70px; /* Réduire la largeur de l'entrée de quantité */
+height: 40px;
+border-radius: 4px;
+margin-bottom: 10px;
 }
 
 .add-to-cart {
-  font-size: 16px;
-  font-weight: bold;
+font-size: 16px;
+font-weight: bold;
 }
 
 
 
-/* _______________ */
+/* _____ */
 .img {
-  height: 37%;
-  margin-bottom: 27px;
-  border-radius: 10px;
+height: 45%;
+margin-bottom: 27px;
+border-radius: 20px;
 
 }
 
 .img-principal {
-  height: 79%;
-  box-shadow: 10px 12px 13px rgb(221, 240, 243);
-  border-radius: 10px;
+height: 100%;
+
+border-radius: 20px;
 }
 
 
 
 .thumbnail {
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
+cursor: pointer;
+transition: transform 0.3s ease-in-out;
+}
+.ratings i{
+
+
+  font-size: 16px;
+  color: red}
+.strike-text{
+  color: red;
+  text-decoration: line-through
+}
+.descriptionD {
+margin-bottom: 10px;
+}
+
+.priceD {
+margin-bottom: 10px;
+font-weight:300px;
+font-size: 30px;
+}
+
+.titleD {
+
+
+font-weight: bold;
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-size: 45px; /* Augmenter la taille du titre */
+}
+
+#quantite {
+width: 70px; /* Réduire la largeur de l'entrée de quantité */
+height: 40px;
+border-radius: 4px;
+margin-bottom: 10px;
+}
+
+.add-to-cart {
+font-size: 16px;
+font-weight: bold;
+}
+
+
+
+/* _____ */
+.img {
+  
+  
+height: 35%;
+width: 100%;
+margin-bottom: 7px;
+border-radius: 15px;
+
+}
+
+.img-principal {
+height: 97%;
+
+border-radius: 20px;
+}
+
+
+
+.thumbnail {
+cursor: pointer;
+transition: transform 0.3s ease-in-out;
 }
 
 .thumbnail:hover {
-  transform: scale(1.1);
+transform: scale(1.1);
 }
-
+#carddetail{
+  border-radius: 30px;
+  background-color: #fff9da;
+  box-shadow: 4px 4px 8px rgba(36, 141, 233, 0.5) ;
+}
 
 
 
@@ -74,16 +149,23 @@
   }
   .section-title {
       color: #2f2f2f; }
-  
-  
+
+
     .product-section {
-  
+
+
       padding: 7rem 0; }
       .product-section a img{
           height: 250px;
           width: 397px;
       }
+      .product-section .product-item:hover{
+          transform: scale(1.05);
+      }
       .product-section .product-item {
+          box-shadow: 2px 2px 4px rgba(120, 191, 253, 0.5) ;
+          transition: transform 0.3s ease-in-out;
+          border-radius: 30px;
           height: 400px;
         text-align: center;
         text-decoration: none;
@@ -94,6 +176,8 @@
         .product-section .product-item .product-thumbnail {
           width: 100%;
           margin-bottom: 30px;
+          border-radius: 30px;
+
           position: relative;
           top: 0;
           -webkit-transition: .3s all ease;
@@ -135,35 +219,35 @@
             transform: translate(-50%, -50%); }
         .product-section .product-item:before {
           bottom: 0;
-  
+
           left: 0;
           right: 0;
           position: absolute;
           content: "";
-          background: #55bbff;
+          background-color: #fff9da;
           height: 0%;
           z-index: -1;
-          border-radius: 10px;
+          border-radius: 30px;
           -webkit-transition: .3s all ease;
           -o-transition: .3s all ease;
           transition: .3s all ease; }
         .product-section .product-item:hover .product-thumbnail {
           top: -25px; }
-  
-  
+
+
   -----------------------------------
-  
-  
-  
+
+
+
   .product-section .product-item .icon-cross,
   .product-section .product-item .btn {
   position: absolute;
   width: 50px;
   height: 40px;
   display: inline-block;
-  background: #2f2f2f;
-  bottom: px;
-  left: 50%;
+  background: #2788ff;
+   bottom: px; 
+  left: 50%; 
   transform: translateX(-50%);
   margin-bottom: -17.5px;
   border-radius: 50%;
@@ -171,7 +255,7 @@
   visibility: hidden;
   transition: .3s all ease;
   }
-  
+
   .product-section .product-item .icon-cross img,
   .product-section .product-item .btn svg {
   position: absolute;
@@ -179,7 +263,7 @@
   top: 45%;
   transform: translate(-50%, -50%);
   }
-  
+
   .product-section .product-item:before,
   .product-section .product-item .btn:before {
   bottom: 0;
@@ -187,52 +271,213 @@
   right: 0;
   position: absolute;
   content: "";
-  background: #55bbff;
+  background-color: #fff9da;
   height: 0%;
   z-index: -1;
-  border-radius: 10px;
+  border-radius: 30px;
   transition: .3s all ease;
   }
-  
+
   .product-section .product-item:hover .btn,
   .product-section .product-item:hover .icon-cross,
   .product-section .product-item:hover:before {
   opacity: 1;
   visibility: visible;
   }
-  
+
   .product-section .product-item:hover:before {
   height: 70%;
   }
-  
+
   /* Add this CSS to your existing CSS */
-  
+
   .product-item .button-group {
   display: flex;
   justify-content: space-between;
   position: absolute;
-  bottom: 25px; /* Adjust the distance from the bottom */
-  width: 100%; /* Make the button group full width */
+  bottom: 25px;  
+  width: 100%; 
   }
-  
+
   .submit-btn,
   .wts-btn {
   width: calc(50% - 5px); /* Adjust button width */
   }
-  
-  
-  
-  
-  
+
+
+
+
+
   .submit-btn {
   float: left; /* Float the WTS button to the right */
   margin-left: -30%; /* Add a margin between buttons */
   }
-  
+
   .wts-btn {
   float: right; /* Float the WTS button to the right */
   margin-left: 30%;
   /* Add a margin between buttons */
   }
+
+  #containerPro{
+    margin-top: 400px;
+  }
+  @media screen and(max-width:300px)and(max-width:500px){
+    #containerDetail{
+      background-color: red;
+    }
+    
+  }
+
+  @media screen and (max-width: 320px) {
+    #mainImage{
+      height: 2px !important;
+    }
+    .product-item {
+     
+    width: 350px;
+    
+    }
+    #containerPro{
+      margin-top: 400px;
+  
+    }
+    #carddetail{
+      border-radius: 30px;
+      background-color: #ffe7da;
+      box-shadow: 4px 4px 8px rgba(36, 141, 233, 0.5) ;
+    }
+    
+  }
+  @media screen and (max-width: 575.98px) {
+     #mainImageP{
+      height: 300px !important;
+      width: 300px  !important;
+    } 
+    #mainImage{
+      height: 50px !important; 
+       width: 50px  !important;
+    } 
+    .product-details{
+      height: 400px;
+      width: 500px;
+      margin-bottom: 50px;
+    }
+    #carddetail{
+      height: 800px !important;
+      margin: auto;
+      
+      border-radius: 30px;
+      /* background-color: #ffe7da; */
+      box-shadow: 4px 4px 8px rgba(36, 141, 233, 0.5) ;
+    }
+    .product-item {
+      
+      margin: auto;
+
+     
+      width: 350px;
+      
+      }
+      #colDetail{
+        /* background-color: red; */
+        padding: 25px;
+        width: 55%;
+      }
+      #carddetail{
+        align-items: center;
+        justify-content: center;
+        border-radius: 30px;
+        height:100%;
+    
+      }
+      .container-fluid{
+        height: 100%;
+      }
+      #containerPro{
+        margin-top: 800px;
+    
+      }
+    
   
   
+  
+  }
+  
+  
+  @media screen and (min-width: 576px) and (max-width: 767.98px) {
+    .product-item {
+      
+      margin: auto;
+     
+      width: 390px;
+      
+      }
+    }
+    @media screen and (min-width: 630px) and (max-width: 767.98px) {
+       
+      .product-item {
+        
+        margin: auto;
+     
+        width: 350px;
+        
+        }
+  
+        }
+  
+  
+  
+  
+  
+  
+  
+  
+  @media screen and (min-width: 768px) and (max-width: 991.98px) {
+    .product-item {
+   
+      margin: auto;
+     
+      width: 225px;
+      
+      }
+      #containerPro{
+        margin-top: 300px;
+    
+      }
+  }
+  
+  
+  @media screen and (min-width: 992px) and (max-width: 1199.98px) {
+    .product-item {
+     
+      margin: auto;
+     
+     
+      width: 215px;
+      
+      
+      }
+      #containerPro{
+        margin-top: 300px;
+    
+      }
+  }
+  
+  
+  @media screen and (min-width: 1200px) {
+    .product-item {
+      
+      margin: auto;
+    
+     
+      width: 270px;
+      
+      }
+      #containerPro{
+        margin-top: 300px;
+    
+      }
+      
+  
+  }

@@ -1,127 +1,57 @@
-{{-- <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="mt-5 border " >
-        <div class="container-fluid ">
-            <div class="row ">
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark rounded sidebar">
-                    <div class="position-sticky">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link text-light" href="{{route('profil')}}">
-                                    Profil_Site
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active text-light" aria-current="page" href="{{route('index')}}">
-                                    Produits
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" href="{{route('listeCommande')}}">
-                                    Commandes
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" href="{{route('listeUser')}}">
-                                    Utilisateurs
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-                <main class="col-md-9 col-lg-10 px-md-4">
-                    <!-- Contenu du tableau de bord -->
-       @yield('ContentAdmin')
-
-                </main>
-            </div>
-        </div>
-        
-        
-
-
-    </div>
-    
-
-
-
-
-
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
-</html> --}}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bootstrap Demo</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/appadmin.css') }}">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/appAdmin.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+
+    
 </head>
 <body>
+    <nav id="slide-menu">
+	 <ul>
+		<li><a class="nav-link" href="{{route('profil')}}">Profil</a></li>
+		
+		<li><a class="nav-link" href="{{route('index')}}">Produits</a></li>
+		<li><a class="nav-link" href="{{route('listeCommande')}}">Commandes</a></li>
+		<li><a class="nav-link" href="{{route('listeUser')}}">Utilisateurs</a></li>
+		<li><a class="nav-link" href="{{route('acceuil')}}">Se déconnecter</a></li>
 
-<div class="mt-2">
-  <div class="container-fluid " id="al">
-    <h1>SMART CAISSE</h1>
-    <div class="row">
-      <nav id="sidebarMenu" class="col-lg-2 col-md-3 col-sm-12 col-12 rounded sidebar">
-        <div class="position-sticky">
-          <ul class="nav flex-column active">
-            <h1 style="margin-left: 2px;color:rgb(255, 255, 255)">Dashboard</h1><br>
-            <img src="{{ asset("images/ana.jpeg") }}" style="width: 70px;height70px;border-radius:50%;margin-left:70px;"><br>
-            <hr>
-            <li class="nav-item "><a class="nav-link active text-light" aria-current="page"  ><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"  width="25" height="25" id="settings"><path fill="#231f20" d="M58.1 26.9c-.5-.6-1.3-.9-2.1-.9h-7.3c-.6 0-.9-.5-.9-.6-.1-.1-.2-.7.2-1.1l5.3-5.3c1.2-1.2 1.2-3.1 0-4.2l-4.2-4.2c-1.2-1.2-3.1-1.2-4.2 0l-5.1 5.1c-.4.4-.9.3-1.1.2-.1-.1-.6-.3-.6-.9L38 8c0-.8-.3-1.6-.9-2.1-.5-.6-1.3-.9-2.1-.9h-6c-1.7 0-3 1.3-3 3v7.1c0 .6-.5.9-.6.9-.1.1-.7.2-1.1-.2l-5.2-5.2c-1.2-1.2-3.1-1.2-4.2 0l-4.2 4.2c-.6.6-.9 1.3-.9 2.1s.3 1.6.9 2.1l5.3 5.3c.4.4.3.9.2 1.1-.2.1-.4.6-1 .6H8c-1.7 0-3 1.3-3 3v6c0 .8.3 1.6.9 2.1.5.6 1.3.9 2.1.9h7.1c.6 0 .9.5.9.6.1.1.2.7-.2 1.1l-5.2 5.2c-1.2 1.2-1.2 3.1 0 4.2l4.2 4.2c.6.6 1.3.9 2.1.9s1.6-.3 2.1-.9l5.2-5.2c.4-.4.9-.3 1.1-.2.1.1.6.3.6.9v7.1c0 .8.3 1.6.9 2.1.6.6 1.3.9 2.1.9h6c1.7 0 3-1.3 3-3v-7.1c0-.6.5-.9.6-.9.1-.1.6-.2 1.1.2l5.2 5.2c.6.6 1.3.9 2.1.9s1.6-.3 2.1-.9l4.2-4.2c.6-.6.9-1.3.9-2.1s-.3-1.6-.9-2.1L48 39.7c-.4-.4-.3-.9-.2-1.1.1-.1.3-.6.9-.6h7.1c1.7 0 3-1.3 3-3v-6c.2-.8-.1-1.6-.7-2.1zM57 35c0 .6-.5 1-1 1h-7.1c-1.2 0-2.3.7-2.8 1.9-.5 1.1-.2 2.4.6 3.3l5.2 5.2c.2.2.3.4.3.7 0 .3-.1.5-.3.7L47.7 52c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3l-5.2-5.2c-.9-.9-2.1-1.1-3.3-.6-1.1.5-1.9 1.5-1.9 2.8v7.1c0 .6-.5 1-1 1h-6c-.3 0-.5-.1-.7-.3-.1-.3-.2-.5-.2-.8v-7.1c0-1.2-.7-2.3-1.8-2.8-.4-.2-.8-.2-1.2-.2-.8 0-1.5.3-2.1.9L17.7 52c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3L12 47.7c-.4-.4-.4-1 0-1.4l5.2-5.2c.9-.9 1.1-2.1.7-3.3-.5-1.1-1.5-1.8-2.8-1.8H8c-.3 0-.5-.1-.7-.3-.2-.2-.3-.4-.3-.7v-6c0-.6.5-1 1-1h7.1c1.2 0 2.3-.7 2.8-1.9.5-1.1.2-2.4-.6-3.3L12 17.6c-.4-.4-.4-1 0-1.4l4.2-4.2c.4-.4 1-.4 1.4 0l5.2 5.2c.9.9 2.1 1.1 3.3.6 1.1-.5 1.9-1.5 1.9-2.8V8c0-.6.5-1 1-1h6c.3 0 .5.1.7.3.2.2.3.4.3.7v6.9c0 1.2.7 2.3 1.8 2.8s2.4.2 3.3-.7l5.1-5.1c.4-.4 1-.4 1.4 0l4.2 4.2c.4.4.4 1 0 1.4l-5.3 5.3c-.9.9-1.1 2.1-.7 3.3.5 1.1 1.5 1.8 2.8 1.8h7.3c.3 0 .5.1.7.3.2.2.3.4.3.7L57 35z"></path><path fill="#231f20" d="M32 22c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10-4.5-10-10-10zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"></path></svg></span>
-                <span>Profile_site</span></a></li>
-            <li class="nav-item "><a class="nav-link active text-light" aria-current="page" href="{{route('index')}}"> <span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0 0 50 50">
-                <path d="M 1 3 L 1 15 L 3 15 L 3 48 L 47 48 L 47 15 L 49 15 L 49 3 Z M 3 5 L 47 5 L 47 13 L 3 13 Z M 5 15 L 45 15 L 45 46 L 5 46 Z M 17.5 19 C 15.578125 19 14 20.578125 14 22.5 C 14 24.421875 15.578125 26 17.5 26 L 32.5 26 C 34.421875 26 36 24.421875 36 22.5 C 36 20.578125 34.421875 19 32.5 19 Z M 17.5 21 L 32.5 21 C 33.339844 21 34 21.660156 34 22.5 C 34 23.339844 33.339844 24 32.5 24 L 17.5 24 C 16.660156 24 16 23.339844 16 22.5 C 16 21.660156 16.660156 21 17.5 21 Z"></path> </svg></span>
-                <span>Produits</span></a></li>
-            <li class="nav-item"><a class="nav-link text-light" href="{{route('listeCommande')}}"><span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" clip-rule="evenodd" viewBox="0 0 96 96" id="fast-delivery"><path fill="none" d="M0 0h96v96H0z"></path><path d="M73.161 20.198H32.343a3.5 3.5 0 0 0-3.145 1.963L4.32 73.079a1.5 1.5 0 0 0 1.348 2.159h56.017c.573 0 1.096-.327 1.348-.842l18.575-38.019a1.5 1.5 0 1 0-2.695-1.317L60.749 72.238H8.07l23.823-48.76a.5.5 0 0 1 .449-.28h40.819a1.5 1.5 0 0 0 0-3Z"></path><path d="m46.061 37.426 7.363-15.07a1.501 1.501 0 0 0-2.696-1.317l-8.131 16.643a2.337 2.337 0 0 0 2.998 3.186l4.238-1.761a3.487 3.487 0 0 1 3.338.363l1.367.956a3.194 3.194 0 0 0 4.704-1.215l8.235-16.855a1.501 1.501 0 0 0-2.696-1.317l-8.235 16.855a.194.194 0 0 1-.127.103.192.192 0 0 1-.161-.029l-1.367-.956a6.486 6.486 0 0 0-6.209-.675l-2.621 1.089zM15 69h11.915a1.5 1.5 0 0 0 0-3H15a1.5 1.5 0 0 0 0 3zm6.633-6.128 1.789-3.663a1.5 1.5 0 1 0-2.695-1.317l-1.79 3.663a1.501 1.501 0 0 0 2.696 1.317zm6.511 0 1.79-3.663a1.5 1.5 0 0 0-2.695-1.317l-1.79 3.663a1.5 1.5 0 1 0 2.695 1.317zm-9.403 9.366c-4.48 0-9.924 3.593-12.113 8.073-1.23 2.517-1.211 4.804-.367 6.454.897 1.755 2.739 2.937 5.413 2.937 4.48 0 9.924-3.594 12.113-8.074 1.23-2.516 1.211-4.804.367-6.454-.897-1.754-2.739-2.936-5.413-2.936zm0 3c1.318 0 2.3.437 2.742 1.302.495.968.33 2.295-.391 3.771-1.712 3.503-5.915 6.391-9.418 6.391-1.318 0-2.3-.438-2.742-1.303-.495-.968-.33-2.295.391-3.771 1.712-3.503 5.915-6.39 9.418-6.39zm29.871-3c-4.48 0-9.924 3.593-12.113 8.073-1.229 2.517-1.211 4.804-.367 6.454.898 1.755 2.739 2.937 5.413 2.937 4.481 0 9.925-3.594 12.114-8.074 1.229-2.516 1.21-4.804.366-6.454-.897-1.754-2.738-2.936-5.413-2.936zm0 3c1.319 0 2.3.437 2.742 1.302.495.968.33 2.295-.391 3.771-1.711 3.503-5.915 6.391-9.418 6.391-1.318 0-2.299-.438-2.742-1.303-.495-.968-.33-2.295.392-3.771 1.711-3.503 5.914-6.39 9.417-6.39zm34.657-68.94c-6.75 0-12.231 5.481-12.231 12.231 0 1.471.562 3.514 1.49 5.782 1.985 4.854 5.608 10.886 7.762 14.3a3.486 3.486 0 0 0 5.961-.005c2.151-3.409 5.774-9.441 7.759-14.295.928-2.268 1.49-4.311 1.49-5.782 0-6.75-5.48-12.231-12.231-12.231zm0 3c5.095 0 9.231 4.137 9.231 9.231 0 1.622-.933 4.054-2.165 6.688-1.991 4.258-4.841 8.967-6.632 11.805l-.018.03a.486.486 0 0 1-.832 0l-.018-.03c-1.791-2.838-4.64-7.547-6.632-11.805-1.232-2.634-2.165-5.066-2.165-6.688 0-5.094 4.136-9.231 9.231-9.231zm0 3.547a5.107 5.107 0 0 0-5.105 5.105 5.107 5.107 0 0 0 5.105 5.105 5.107 5.107 0 0 0 5.105-5.105 5.107 5.107 0 0 0-5.105-5.105zm0 3a2.106 2.106 0 1 1-.001 4.211 2.106 2.106 0 0 1 .001-4.211zM2 23.198h21.198a1.5 1.5 0 0 0 0-3H2a1.5 1.5 0 0 0 0 3zm0 10.644h15.997a1.5 1.5 0 0 0 0-3H2a1.5 1.5 0 0 0 0 3zm0 10.645h10.797a1.5 1.5 0 0 0 0-3H2a1.5 1.5 0 0 0 0 3z"></path><path d="M2 75.238h65.605a1.501 1.501 0 0 0 0-3H2a1.5 1.5 0 0 0 0 3Z"></path></svg></span>
-               <span>Commandes</span> </a></li>
-            <li class="nav-item"><a class="nav-link text-light" href="{{route('listeUser')}}"> <span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 62 62" id="users"><g fill="none" fill-rule="evenodd"><g fill="#000" transform="translate(-609 -140)"><g transform="translate(608 139)"><path d="M51.81 35.962h-6.4c-.915 0-1.524-.61-1.524-1.524s.61-1.524 1.524-1.524h6.4c1.523 0 3.047-.304 4.571-.61.914-.304 1.524-.609 2.133-.914.61-.304.915-1.219.915-1.828 0-.61-.305-1.22-.61-1.829-1.524-1.828-4.267-3.047-7.924-4.266-.305 0-.305-.305-.61-.305-.914-.61-1.523-1.524-1.828-2.438 0-1.22.61-2.134 1.524-2.743 2.133-3.048 3.352-5.79 3.048-8.229-.305-1.523-.915-2.742-2.134-3.657-2.133-1.524-5.18-1.524-7.01 0-1.218.915-1.828 2.134-2.133 3.657-.304 2.438.915 5.181 3.048 8.229.61.61.305 1.524-.305 2.133-.61.61-1.524.305-2.133-.304-3.048-3.658-4.267-7.315-3.657-10.667.305-2.133 1.524-4.267 3.352-5.486 3.048-2.438 7.62-2.438 10.667 0 1.828 1.524 3.047 3.353 3.352 5.486.305 3.352-.914 7.01-3.657 10.667-.305.304-.305.609-.61.609 0 0 .305 0 .305.305 3.962 1.219 7.01 3.047 8.838 5.18.915.915 1.524 2.439 1.524 3.963a5.332 5.332 0 01-2.133 4.266c-.914.61-1.829 1.22-3.048 1.524-1.828 0-3.657.305-5.485.305zM18.59 35.962h-6.4c-2.133 0-3.961-.305-5.485-.914-1.22-.305-2.134-.915-3.048-1.524-1.219-.914-2.133-2.743-2.133-4.267 0-1.524.61-2.743 1.524-3.962 2.133-2.133 5.18-3.657 9.142-4.876 0 0 .305 0 .305-.305 0 0-.305-.304-.305-.61C9.143 15.849 7.62 11.887 8.23 8.839c.304-2.133 1.523-4.267 3.352-5.486 3.048-2.438 7.619-2.438 10.667 0 1.828 1.524 3.047 3.353 3.352 5.486.305 3.352-.914 7.01-3.657 10.667-.61.61-1.524.61-2.133.305-.61-.61-.915-1.524-.305-2.134 2.438-3.047 3.352-6.095 3.047-8.228 0-1.524-.914-2.743-2.133-3.658-2.133-1.523-4.876-1.523-7.01 0-1.219.915-2.133 2.134-2.133 3.353-.305 2.438.914 5.18 3.048 8.228.61.915 1.524 1.829 1.219 2.743 0 1.22-.914 1.829-1.829 2.438 0 0-.304.305-.61.305-3.352 1.524-5.79 2.743-7.618 4.572-.305.61-.61 1.219-.61 1.828 0 .914.305 1.524.914 1.829.61.304 1.22.61 2.134.914 1.219.61 2.743.914 4.266.914h6.4c.915 0 1.524.61 1.524 1.524s-.61 1.524-1.524 1.524z"></path><path d="M38.4 62.476H25.905c-2.743 0-5.181-.305-7.315-1.219-1.523-.61-2.742-1.219-3.657-2.133-1.828-.914-2.743-3.048-2.743-5.181 0-1.829.61-3.353 1.829-4.876 2.438-2.743 6.4-4.877 11.886-6.705l.914-.914-.914-.915c-3.962-5.18-5.79-9.752-5.181-14.019.61-2.743 1.828-5.18 4.266-7.01 3.962-2.742 10.058-2.742 13.715 0 2.438 1.83 3.962 4.267 4.266 7.01.61 4.267-1.219 9.143-4.876 14.02-.914.914-.914 1.218-.914 1.218s.61.305.914.61c5.486 1.828 9.448 3.962 11.886 6.705 1.219 1.219 1.829 3.047 1.829 4.876 0 2.133-.915 4.267-2.439 5.486-.914.914-2.133 1.523-3.657 2.133-2.438.61-4.876.914-7.314.914zM32 20.114c-1.829 0-3.657.61-5.181 1.524-1.829 1.22-2.743 3.048-3.048 5.181-.304 3.352 1.22 7.314 4.267 11.581.914.914 1.829 1.829 1.524 3.352 0 1.22-1.22 2.134-2.133 3.048 0 0-.305.305-.61.305-5.18 1.524-8.533 3.657-10.971 6.095-.305.61-.61 1.829-.61 2.743 0 1.219.61 2.438 1.524 3.047.61.61 1.828 1.22 3.048 1.524 1.828.61 3.961.915 6.095.915H38.4c2.133 0 4.267-.305 6.095-.915 1.22-.304 2.134-.914 3.048-1.524.914-.609 1.524-1.828 1.524-3.047 0-.914-.305-2.133-1.22-2.743-2.133-2.438-5.79-4.267-10.97-6.095-.306 0-.306-.305-.61-.305-.915-.914-2.134-1.829-2.134-3.048s.915-2.438 1.829-3.352c3.048-3.962 4.571-8.229 4.267-11.581-.305-2.133-1.22-3.657-3.048-5.18-1.524-.915-3.352-1.525-5.181-1.525z"></path></g></g></g></svg> </span>
-                <span>Utilisateurs</span></a></li>
-          </ul>
-        </div>
-      </nav>
-      <main class="col-lg-10 col-md-9 col-sm-12 col-12">
-        <!-- Contenu du tableau de bord -->
-        @yield('ContentAdmin')
-      </main>
-    </div>
+	</ul> 
+	
+</nav>
+<!-- Content -->
+<div id="content">
+<h1 class="dash">Dashboard</h1>
+<hr>
+	<div class="menu-trigger"></div>
+	
+  <div class="container-fluid" id="globale">
+    @yield('ContentAdmin')
+
+
   </div>
+
 </div>
-
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const navLinks = document.querySelectorAll('#sidebarMenu a');
+    (function() {
+	var $body = document.body
+	, $menu_trigger = $body.getElementsByClassName('menu-trigger')[0];
 
-    navLinks.forEach(link => {
-      link.addEventListener('click', function () {
-        // Remove 'clicked' class from all li elements
-        document.querySelectorAll('#sidebarMenu li').forEach(li => {
-          li.classList.remove('clicked');
-        });
-        // Add 'clicked' class to the parent li of the clicked link
-        this.parentElement.classList.add('clicked');
-      });
-    });
-  });
+	if ( typeof $menu_trigger !== 'undefined' ) {
+		$menu_trigger.addEventListener('click', function() {
+			$body.className = ( $body.className == 'menu-active' )? '' : 'menu-active';
+		});
+	}
+
+}).call(this);
 </script>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </body>
 </html>

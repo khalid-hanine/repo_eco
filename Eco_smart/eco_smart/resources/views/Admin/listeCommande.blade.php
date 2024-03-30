@@ -1,10 +1,10 @@
 @extends('layouts.appAdmin')
 
 @section('ContentAdmin')
-<table class="table">
+<table class="table table-bordered table table-striped">
     <thead>
         <tr>
-            <th scope="col">id</th>
+            <th scope="col " class="text-danger">id</th>
             <th scope="col">created_at</th>
 
             <th scope="col">Commande</th>

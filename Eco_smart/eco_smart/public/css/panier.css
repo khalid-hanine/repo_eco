@@ -1,37 +1,51 @@
+#info{
+    height: 200px;
+border-radius: 30px;
+box-shadow: 3px 3px 6px rgba(155, 204, 246, 0.5) ;
+    background-color: #fff9da;
+
+    top: 180px;
+}
 #commande{
     height: 200px;
-    width: 200px;
+    width: 201px;
     background-color: #111D4A;
-    position: fixed;
+margin: auto;
     top: 180px;
-    right: 100px;
-    /* background-color: #44BBA4; */
+    border-radius: 30px;
 
+    /* background-color: #44BBA4; */
+}
+#commande h3{
+    margin-top: 30px;
 }
 #btnComander{
     background-color: #38A700;
 }
- 
+
 
 
 #headpro{
-    background-color: #aafded;
+    background-color: #55bbff;
     border-radius: 30px 0 0 30px;
 }
 #headtitre{
-    background-color: #aafded;
+    background-color: #55bbff;
 
 
 }
 #headDel{
-    background-color: #aafded;
+    background-color:#55bbff;
     border-radius: 0 30px 30px 0;
 
 }
 #divpanier{
     position: relative;
     padding: 0;
-    width:75% ;
-    
-
+    width:100% ;
+    border-radius: 30px;
+    box-shadow: 4px 4px 8px rgba(36, 141, 233, 0.5) ;
+}
+#divpanier #quantite {
+    width: 50px;
 }

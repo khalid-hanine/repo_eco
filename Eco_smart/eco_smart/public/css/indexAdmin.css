@@ -1,30 +1,45 @@
-.dash
+.container
 {
-    margin-top:10px;
-    padding: 0px;
-    padding-left: 0;
-    margin-left: 0%;
-    background-color: #0fa5ea;
-    border-radius: 20px;
-    width: 90%;
-    box-shadow:5px 5px 13px rgb(0, 187, 255)
+    
+    /* margin-left: 0%; */
+    /* background-color: rgb(255, 250, 180); */
+   
 }
-.dash #add a{
-    margin-left:75%;
-    margin-top:1%;
-    border-radius: 20px;
+#btnDelet{
+    background-color: transparent;
+    border-color: transparent;
 }
+#btnAjouter{
+   
+    
+    margin:10px;
+  
+}
+@media screen and (max-width: 575.98px) {
+    
+    
 
-
-.dash table
-{
-
-    margin-left: 0px;
-    width: 100%;
 }
-.dash table th
-{
-    border-radius: 20px ;
-    background-color:#0fa5ea;
-     color:aliceblue;
-}
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+    
+    
+  
+   
+    
+    
+  }
+  
+  
+  
+  @media screen and (min-width: 768px) and (max-width: 991.98px) {
+   
+  }
+  
+  
+  @media screen and (min-width: 992px) and (max-width: 1199.98px) {
+    
+  }
+  
+  
+  @media screen and (min-width: 1200px) {
+  }
