@@ -33,12 +33,12 @@
 
 .image-container {
 
-  margin-left: 5%;/* Adjust alignment as needed */
-    align-items: center; /* Align items vertically */
+  margin-left: 5%;
+    align-items: center; 
 }
 .image-container img {
-    width: 20%; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
+    width: 20%; 
+    height: auto; 
     border-radius: 20px;
     box-shadow: 3px 3px 6px rgba(41, 195, 252, 0.5) ;
      transition: transform 0.3s ease-in-out;

@@ -17,7 +17,7 @@
 
 
 
-    {{-- _____ --}}
+   
     <section class="vh-75 " id="section">
   <div class="mask d-flex align-items-center h-100 ">
     <div class="container h-100">
@@ -47,7 +47,7 @@
                 <div style="color: red; ">{{ $message }}</div>
             @enderror
                 <div class="d-flex justify-content-center mt-3">
-                  <button  type="submit " class="btn  btn-block btn-lg gradient-custom-4 text-body" id="btn">
+                  <button  type="submit " class="btn  btn-block btn-lg gradient-custom-4 text-body btn-submit" id="btn">
                     Valider la commande
                 </button>
                 </div>
@@ -63,6 +63,33 @@
     </div>
   </div>
 </section>
+<script>
+   document.addEventListener("DOMContentLoaded", function() {
+                    const addToCartButtons = document.querySelectorAll('.btn-submit');
+
+
+                    const counterSpan = document.querySelector('.counter-span');
+
+                   
+                    function updateCounter(count) {
+                        counterSpan.textContent = count;
+                        localStorage.setItem('cartCounter', count);
+                    }
+
+                    
+                    if (localStorage.getItem('cartCounter')) {
+                        updateCounter(parseInt(localStorage.getItem('cartCounter')));
+                    }
+
+                    addToCartButtons.forEach(button => {
+                        button.addEventListener('click', function() {
+                            let count = parseInt(counterSpan.textContent);
+                            count=0;
+                            updateCounter(count);
+                        });
+                    });
+                  })
+</script>
 
 
 

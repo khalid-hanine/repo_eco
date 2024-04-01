@@ -28,13 +28,13 @@ class AdminController extends Controller
         return view('Admin.interfaceHome',['slide'=> $slide,'cover'=>$cover]);
     }
     public function editImage(Profil $image){
-        // dd($image);
+      
         $imageDB=Profil::where('id',$image->id)->get();
-        // dd($imageDB);
+       
 
         return view('Admin.editImage',['imageDB'=>$imageDB,'image'=>$image]);
     }
-    //______________________________________________________________________
+    
     public function updateImage(Request $request ,$imageId){
         $validatedData = $request->validate([
             
@@ -42,7 +42,7 @@ class AdminController extends Controller
 
         ]);
         $image = Profil::find($imageId);
-        // dd($image);
+       
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = time() . '.' . $file->getClientOriginalExtension();
@@ -58,7 +58,7 @@ class AdminController extends Controller
 
 
     }
-    //______________________________________________________________________
+
     public function admin(){
         
 
@@ -71,21 +71,18 @@ class AdminController extends Controller
             'name' => ['required'],
             'password' => ['required'],
         ]);
-        // dd($validatedData);
+       
         
         $user = Administrator::where('name', $request->input('name'))->first();
-        // dd($user);
+      
         
         if ($user && Hash::check($request->input('password'), $user->password)) {
             return redirect()->route('index');
 
-            // Mot de passe correct
-            // Connecter l'utilisateur
         } else {
-            return 'faux';
+            return back()->withInput()->withErrors(['messageP' => 'Nom d\'utilisateur ou mot de passe non valide']);
 
-            // Mot de passe incorrect
-            // Rediriger l'utilisateur vers la page de connexion avec un message d'erreur
+
         }
             
         
@@ -109,15 +106,15 @@ class AdminController extends Controller
 
 
 
-    public function create(){ // file qui affiche la formulair à remplaire
+    public function create(){ 
         $produit=Produit::all();
-        // dd($users);
+        
 
         return view('Admin.create',['produits'=>$produit]);
     }
     public function store(Request $request)
     {
-        // Valider les données du formulaire
+     
         $validatedData = $request->validate([
             'nom' => ['required', 'min:3'],
             'description' => ['required'],
@@ -130,12 +127,12 @@ class AdminController extends Controller
             'typeS' => ['required']
 
         ]);
-        // dd($validatedData);
+        
     
-        // Initialiser un tableau pour stocker les chemins d'images
+        
         $imagePaths = [];
     
-        // Traiter chaque image si elle est présente
+       
         foreach (['image', 'image2', 'image3'] as $key => $imageField) {
             if ($request->hasFile($imageField)) {
                 $file = $request->file($imageField);
@@ -146,7 +143,7 @@ class AdminController extends Controller
             }
         }
     
-        // Créer le produit avec les images téléchargées
+        
         $produitData = [
             'nom' => $validatedData['nom'],
             'description' => $validatedData['description'],
@@ -157,17 +154,15 @@ class AdminController extends Controller
             'typeS' => $validatedData['typeS'] ?? null,
 
         ];
-        // dd($produitData);
-    
-        // Ajouter les chemins d'images au tableau de données du produit
+       
         foreach ($imagePaths as $field => $path) {
             $produitData[$field] = $path;
         }
     
-        // Créer le produit avec les données
+        
         Produit::create($produitData);
     
-        // Rediriger vers la page d'administration
+      
         return redirect()->route('index');
     }
     
@@ -178,7 +173,7 @@ public function edit(Produit $produit){
 }
 public function update(Request $request ,$produitId){
 
-        // Valider les données du formulaire
+        
         $validatedData = $request->validate([
             'nom' => ['required', 'min:3'],
             'description' => ['required'],
@@ -194,10 +189,10 @@ public function update(Request $request ,$produitId){
         ]);
         
     
-        // Rechercher le produit à mettre à jour
+        
         $produit = Produit::find($produitId);
     
-        // Mettre à jour les champs du produit
+        
         $produit->nom = $validatedData['nom'];
         $produit->description = $validatedData['description'];
         $produit->prix = $validatedData['prix'];
@@ -207,7 +202,7 @@ public function update(Request $request ,$produitId){
         $produit->typeS = $validatedData['typeS'];
 
     
-        // Traiter l'image si elle est présente
+        
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = time() . '.' . $file->getClientOriginalExtension();
@@ -230,10 +225,10 @@ public function update(Request $request ,$produitId){
             $produit->image3 = $path . '/' . $filename3;
         }
     
-        // Enregistrer les modifications apportées au produit
+       
         $produit->save();
     
-        // Rediriger vers la page d'administration
+       
         return redirect()->route('index');
 
 
@@ -257,9 +252,9 @@ public function destroy($produitId){
 public function listeCommande(){
     $commande=Commande::all();
     $panier=Panier::all();
-    // dd($panier);
+   
 
-    // dd($commande);
+  
     return view('Admin.listeCommande',['commande'=>$commande,'panier'=>$panier]);
 }
 public function listeUser(){

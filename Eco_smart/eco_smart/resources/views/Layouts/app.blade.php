@@ -18,7 +18,7 @@
                     <img src="{{ asset('images/logo.png') }}" alt="Logo" width="90" height="80" style="margin-top: -13px;" class="d-inline-block fixed-top ms-5 ">
                 </a>
                 <button class="navbar-toggler" style="margin-top: -5px;" type="button" onclick="toggleMenu()" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon "></span>
                 </button>
 
                 <div class="collapse navbar-collapse fixed-menu " id="navbarNav">
@@ -36,14 +36,16 @@
                             <a class="nav-link" href="{{ route('infos') }}" >Infos</a>
                         </li>
                     </ul>
-                    <span id="cartCounter" class="counter-span text-center" style="background-color: #ffd000; width:20px;border-radius:50%">0</span>
+                    <span id="cartCounter" class="counter-span text-center" style="background-color: #e92323; width:20px;border-radius:50%;color:rgb(238, 208, 208)">0</span>
+                    
+                    
 
                     <a class="nav-link" href="{{ route('panier') }}" id="addToCartButton">
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-cart " viewBox="0 0 16 16">
                             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
                         </svg> 
-                        {{-- <i class="fas fa-shopping-cart "></i> --}}
+                       
                     </a>
                 </div>
             </div>
@@ -143,12 +145,12 @@
 
 
     <script>
-        // Ajoutez ces lignes dans votre fichier Blade pour gérer l'affichage/cachement de l'alerte
+       
         document.addEventListener('DOMContentLoaded', function () {
             setTimeout(function () {
                 var alert = document.getElementById('alert');
                 alert.classList.remove('show');
-            }, 1000); // Cacher l'alerte après 5 secondes
+            }, 1000); 
         });
 
         document.addEventListener("DOMContentLoaded", function() {
@@ -157,13 +159,13 @@
 
     const counterSpan = document.querySelector('.counter-span');
 
-    // Function to update counter in localStorage and on the page
+    
     function updateCounter(count) {
         counterSpan.textContent = count;
         localStorage.setItem('cartCounter', count);
     }
 
-    // Check if counter is saved in localStorage and update the counterSpan
+  
     if (localStorage.getItem('cartCounter')) {
         updateCounter(parseInt(localStorage.getItem('cartCounter')));
     }
@@ -177,10 +179,7 @@
     });
 
 
-    ///
-
-
-    // Example for removing a product from the cart (adjust according to your implementation)
+   
     const removeButtons = document.querySelectorAll('.remove-btn');
     removeButtons.forEach(button => {
         button.addEventListener('click', function() {

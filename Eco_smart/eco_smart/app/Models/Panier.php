@@ -10,11 +10,11 @@ class Panier extends Model
     use HasFactory;
 
     protected $fillable = [
-        'produit_id', // Ajoutez 'produit_id' à la liste des colonnes fillable
+        'produit_id', 
         'quantite',
         'total',
         'user_id'
-        // ... autres colonnes fillable si nécessaire
+        
     ];
 
     public function produit(){

@@ -6,7 +6,7 @@ edit
 
 @section('ContentAdmin')
 
-{{-- @dd($produit); --}}
+
 
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -20,7 +20,7 @@ edit
 
 <form method="POST" action="{{route('produits.update',$produit->id)}}" enctype="multipart/form-data">
     @csrf
-    @method('PUT')  {{-- @method  comme un changement de methode par ce que la methode de form html n'accepte que POST et GET --}}
+    @method('PUT')  
 
     <div class="mb-3">
         <label class="form-label">Nom</label>

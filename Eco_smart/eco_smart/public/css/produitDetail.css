@@ -1,12 +1,4 @@
-/* .ratings i{
 
-
-  font-size: 16px;
-  color: red}
-.strike-text{
-  color: red;
-  text-decoration: line-through
-} */
 .descriptionD {
 margin-bottom: 10px;
 }
@@ -22,11 +14,11 @@ font-size: 30px;
 
 font-weight: bold;
 font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-font-size: 45px; /* Augmenter la taille du titre */
+font-size: 45px;
 }
 
 #quantite {
-width: 70px; /* Réduire la largeur de l'entrée de quantité */
+width: 70px; 
 height: 40px;
 border-radius: 4px;
 margin-bottom: 10px;
@@ -39,7 +31,7 @@ font-weight: bold;
 
 
 
-/* _____ */
+
 .img {
 height: 45%;
 margin-bottom: 27px;
@@ -83,11 +75,11 @@ font-size: 30px;
 
 font-weight: bold;
 font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-font-size: 45px; /* Augmenter la taille du titre */
+font-size: 45px;
 }
 
 #quantite {
-width: 70px; /* Réduire la largeur de l'entrée de quantité */
+width: 70px; 
 height: 40px;
 border-radius: 4px;
 margin-bottom: 10px;
@@ -100,7 +92,7 @@ font-weight: bold;
 
 
 
-/* _____ */
+
 .img {
   
   
@@ -289,7 +281,7 @@ transform: scale(1.1);
   height: 70%;
   }
 
-  /* Add this CSS to your existing CSS */
+  
 
   .product-item .button-group {
   display: flex;
@@ -301,7 +293,7 @@ transform: scale(1.1);
 
   .submit-btn,
   .wts-btn {
-  width: calc(50% - 5px); /* Adjust button width */
+  width: calc(50% - 5px);
   }
 
 
@@ -309,35 +301,22 @@ transform: scale(1.1);
 
 
   .submit-btn {
-  float: left; /* Float the WTS button to the right */
-  margin-left: -30%; /* Add a margin between buttons */
+  float: left; 
+  margin-left: -30%; 
   }
 
   .wts-btn {
-  float: right; /* Float the WTS button to the right */
+  float: right;
   margin-left: 30%;
-  /* Add a margin between buttons */
+  
   }
 
   #containerPro{
     margin-top: 400px;
   }
-  @media screen and(max-width:300px)and(max-width:500px){
-    #containerDetail{
-      background-color: red;
-    }
-    
-  }
+ 
 
-  @media screen and (max-width: 320px) {
-    #mainImage{
-      height: 2px !important;
-    }
-    .product-item {
-     
-    width: 350px;
-    
-    }
+  
     #containerPro{
       margin-top: 400px;
   
@@ -348,15 +327,19 @@ transform: scale(1.1);
       box-shadow: 4px 4px 8px rgba(36, 141, 233, 0.5) ;
     }
     
-  }
+  
   @media screen and (max-width: 575.98px) {
+    #containerDetail{
+      margin: auto;
+      padding: 10px;
+    }
      #mainImageP{
-      height: 300px !important;
-      width: 300px  !important;
+      height: 50px !important;
+      width: 100px  !important;
     } 
     #mainImage{
-      height: 50px !important; 
-       width: 50px  !important;
+      height: 300px !important; 
+       width: 300px  !important;
     } 
     .product-details{
       height: 400px;
@@ -368,7 +351,7 @@ transform: scale(1.1);
       margin: auto;
       
       border-radius: 30px;
-      /* background-color: #ffe7da; */
+      
       box-shadow: 4px 4px 8px rgba(36, 141, 233, 0.5) ;
     }
     .product-item {
@@ -380,7 +363,7 @@ transform: scale(1.1);
       
       }
       #colDetail{
-        /* background-color: red; */
+        
         padding: 25px;
         width: 55%;
       }
@@ -481,3 +464,9 @@ transform: scale(1.1);
       
   
   }
+  hr {
+    border: 0; 
+    height: 3px; 
+    background-color: black; 
+    font-weight: bold; 
+}

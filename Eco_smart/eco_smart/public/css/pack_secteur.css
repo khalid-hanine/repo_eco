@@ -5,8 +5,7 @@
 .pack-section #titlePack{
   margin-left: 10%;
 }
-/*  */
-/* _____ */
+
 body{
 
   background:#eee;
@@ -24,7 +23,7 @@ body{
 
 
 
-/* //__________ */
+
 #containerPack{
   justify-content: center;
 }
@@ -36,10 +35,10 @@ width: 350px;
 border-radius: 20px;
 box-shadow: 8px 8px 10px rgba(36, 141, 233, 0.5) ;
   margin-bottom: 30px;
-  /* background-color: rgb(143, 239, 244); */
+  
 }
 .single-product-item:hover {
-  transform: scale(1.05); /* Scale the image by 5% */
+  transform: scale(1.05); 
 }
 .product-image {
 
@@ -58,7 +57,7 @@ height: 300px;
 
 }
 
-/* Scale the image slightly when hovered over */
+
 
 
 
@@ -119,7 +118,7 @@ p.single-product-pricing span {
 
 
 .single-product.btn-wtss {
-width: calc(50% - 5px); /* Adjust button width */
+width: calc(50% - 5px); 
 }
 
 
@@ -128,7 +127,7 @@ width: calc(50% - 5px); /* Adjust button width */
   height: 30px;
   width: 35px;
   float: right;
-  margin-left: -3%; /* Add margin between buttons */
+  margin-left: -3%; 
 }
 
 .single-product.btn-submit {
@@ -136,7 +135,7 @@ width: calc(50% - 5px); /* Adjust button width */
   height: 50px;
   width: 40px;
   float: left;
-  margin-right: -20px; /* Add margin between buttons */
+  margin-right: -20px; 
 }
 
 
@@ -298,19 +297,19 @@ width: calc(50% - 5px); /* Adjust button width */
   height: 70%;
   }
 
-  /* Add this CSS to your existing CSS */
+  
 
   .product-item .button-group {
   display: flex;
   justify-content: space-between;
   position: absolute;
-  bottom: 25px; /* Adjust the distance from the bottom */
-  width: 100%; /* Make the button group full width */
+  bottom: 25px; 
+  width: 100%; 
   }
 
   .submit-btn,
   .wts-btn {
-  width: calc(50% - 5px); /* Adjust button width */
+  width: calc(50% - 5px); 
   }
 
 
@@ -318,14 +317,14 @@ width: calc(50% - 5px); /* Adjust button width */
 
 
   .submit-btn {
-  float: left; /* Float the WTS button to the right */
-  margin-left: -30%; /* Add a margin between buttons */
+  float: left; 
+  margin-left: -30%; 
   }
 
   .wts-btn {
-  float: right; /* Float the WTS button to the right */
+  float: right; 
   margin-left: 30%;
-  /* Add a margin between buttons */
+  
   }
 
   

@@ -24,7 +24,7 @@
               
             
             <td>{{ $cmd->total }}</td>
-            {{-- @dd($cmd->user); --}}
+            
             <td>{{$cmd->user? $cmd->user->name:"not found"}}</td>
             <td>{{$cmd->user? $cmd->user->id:"not found"}}</td>
 

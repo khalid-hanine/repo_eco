@@ -16,7 +16,6 @@
         <h1 class="text-center mb-4" id='titleProduit'>Nos produits</h1>
         <div class="row">
 
-            <!-- Start Column 1 -->
             @foreach ($produits as $produit)
             <div  class="col-12 col-md-4 col-lg-3 col-sm-6 mb-5 mt-5 mb-md-0" >
 

@@ -50,7 +50,7 @@
 
         <td>{{$item->produit? $item->produit->nom:"not found"}}</td>
         <td>{{$item->produit? $item->produit->prix:"not found"}},00 DH</td>
-        {{-- <td>{{$item->produit? $item->quantite:"not found"}}</td> --}}
+        
         <td>
           <form id="updateQuantityForm{{ $item->id }}" action="{{ route('updateQuantity', $item->id) }}" method="POST">
               @csrf
@@ -80,7 +80,7 @@
           function submitForm(itemId) {
               document.getElementById('updateQuantityForm' + itemId).submit();
           }
-          //_______________
+        
 
           
      const removeButtons = document.querySelectorAll('.remove-btn');

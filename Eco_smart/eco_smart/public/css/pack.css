@@ -1,5 +1,4 @@
-/*  */
-/* _____ */
+
 body{
 
   background:#eee;
@@ -17,7 +16,7 @@ body{
 
 
 
-/* //__________ */
+
 #containerPack{
   justify-content: center;
 }
@@ -29,10 +28,10 @@ width: 350px;
 border-radius: 20px;
 box-shadow: 3px 3px 6px rgba(36, 141, 233, 0.5) ;
   margin-bottom: 30px;
-  /* background-color: rgb(143, 239, 244); */
+
 }
 .single-product-item:hover {
-  transform: scale(1.05); /* Scale the image by 5% */
+  transform: scale(1.05); 
 }
 .product-image {
 
@@ -51,7 +50,7 @@ height: 300px;
 
 }
 
-/* Scale the image slightly when hovered over */
+
 
 
 
@@ -107,7 +106,7 @@ p.single-product-pricing span {
 
 
 .single-product.btn-wtss {
-width: calc(50% - 5px); /* Adjust button width */
+width: calc(50% - 5px); 
 }
 
 
@@ -116,7 +115,7 @@ width: calc(50% - 5px); /* Adjust button width */
   height: 30px;
   width: 35px;
   float: right;
-  margin-left: -3%; /* Add margin between buttons */
+  margin-left: -3%;
 }
 
 .single-product.btn-submit {
@@ -124,7 +123,7 @@ width: calc(50% - 5px); /* Adjust button width */
   height: 50px;
   width: 40px;
   float: left;
-  margin-right: -20px; /* Add margin between buttons */
+  margin-right: -20px; 
 }
 
 

@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="row mt-5">
-         <!-- Embed Google Maps iframe -->
+        
          <div class="maps col-6">
             <h1 class="text-center">Location</h1>
             <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.6177697473744!2d-7.636931!3d33.603207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7d3d1337bc3f7%3A0xf1d68687d36b870b!2sPHF%20COM%20MAROC!5e0!3m2!1sen!2s!4v1648594736304!5m2!1sen!2s"  allowfullscreen="" loading="lazy"></iframe>

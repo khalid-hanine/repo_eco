@@ -25,7 +25,7 @@
 	</ul> 
 	
 </nav>
-<!-- Content -->
+
 <div id="content">
 <h1 class="dash">Dashboard</h1>
 <hr>

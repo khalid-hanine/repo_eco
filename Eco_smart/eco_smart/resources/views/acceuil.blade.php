@@ -93,7 +93,7 @@
             <h1 class="text-center mb-4" id='titleProduit'>Nos produits</h1>
             <div class="row" >
     
-                <!-- Start Column 1 -->
+                
                 @foreach ($produits as $produit)
                 <div  class="col-12 col-md-4 col-lg-3 mb-5 mt-5 mb-md-0" style="margin-top: ">
     
@@ -143,7 +143,7 @@
         </div>
     </div>
 
-{{-- --}}
+
 
 
 
@@ -209,7 +209,7 @@
     <div class="row p-1 " id="rowpack">
 
 
-        {{-- //__ --}}
+       
         @foreach ($pack as $produit)
 
         <div class="col-lg-4 col-md-6 col-sm-6 text-center" >
@@ -263,13 +263,12 @@
 
                     const counterSpan = document.querySelector('.counter-span');
 
-                    // Function to update counter in localStorage and on the page
                     function updateCounter(count) {
                         counterSpan.textContent = count;
                         localStorage.setItem('cartCounter', count);
                     }
 
-                    // Check if counter is saved in localStorage and update the counterSpan
+                    
                     if (localStorage.getItem('cartCounter')) {
                         updateCounter(parseInt(localStorage.getItem('cartCounter')));
                     }
@@ -283,10 +282,7 @@
                     });
 
 
-                    ///
-
-
-                    // Example for removing a product from the cart (adjust according to your implementation)
+                    
                     const removeButtons = document.querySelectorAll('.remove-btn');
                     removeButtons.forEach(button => {
                         button.addEventListener('click', function() {

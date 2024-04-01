@@ -18,14 +18,6 @@
 
 
 
-
-
-
-
------------------------------------------------------------------------------------
-
-
-
 .card-img-top:hover {
   transform: scale(1.1);
   }
@@ -171,19 +163,19 @@
   height: 70%;
   }
 
-  /* Add this CSS to your existing CSS */
+ 
 
   .product-item .button-group {
   display: flex;
   justify-content: space-between;
   position: absolute;
-  bottom: 25px; /* Adjust the distance from the bottom */
-  width: 100%; /* Make the button group full width */
+  bottom: 25px; 
+  width: 100%; 
   }
 
   .submit-btn,
   .wts-btn {
-  width: calc(50% - 5px); /* Adjust button width */
+  width: calc(50% - 5px); 
   }
 
 
@@ -191,20 +183,17 @@
 
 
   .submit-btn {
-  float: left; /* Float the WTS button to the right */
-  margin-left: -30%; /* Add a margin between buttons */
+  float: left; 
+  margin-left: -30%; 
   }
 
   .wts-btn {
-  float: right; /* Float the WTS button to the right */
+  float: right; 
   margin-left: 30%;
-  /* Add a margin between buttons */
+  
   }
 
 
-
-
-----------------------------------------------------------------------
 
 .ratings i{
 
@@ -218,7 +207,7 @@
 
 
 
-/* //__________ */
+
 #containerPack{
   justify-content: center;
 }
@@ -230,10 +219,10 @@ width: 250px;
 border-radius: 20px;
 box-shadow: 2px 2px 4px rgba(137, 224, 250, 0.5) ;
   margin-bottom: 30px;
-  /* background-color: rgb(143, 239, 244); */
+  
 }
 .single-product-item:hover {
-  transform: scale(1.05); /* Scale the image by 5% */
+  transform: scale(1.05); 
 }
 .product-image {
 
@@ -252,7 +241,7 @@ height: 300px;
 
 }
 
-/* Scale the image slightly when hovered over */
+
 
 
 
@@ -310,38 +299,6 @@ p.single-product-pricing span {
   color: #051922;
   line-height: inherit;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  ------------------------------------------------------------
-
-
 
 
 
@@ -443,36 +400,6 @@ p.single-product-pricing span {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .imgSecteur {
   border-radius: 10px;
   padding: 0;
@@ -490,7 +417,7 @@ margin-top:10 px;
 }
 @media screen and (max-width: 400px) {
   #rowproduct{
-    /* background-color: red; */
+   
     padding: 50px;
   }
 }
@@ -501,7 +428,7 @@ margin-top:10 px;
   }
   #rowpack{
     padding: 80px;
-    /* background-color: red; */
+   
   }
   .single-product-item {
    

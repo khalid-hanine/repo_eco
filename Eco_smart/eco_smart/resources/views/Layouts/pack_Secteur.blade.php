@@ -1,4 +1,4 @@
-{{-- pack_secteur.blade.php --}}
+
 <link rel="stylesheet" type="text/css" href="{{ asset('css/pack_secteur.css') }}">
 
 @extends('layouts.app')
@@ -118,7 +118,7 @@
         <h3 class="text mb-4" id='titleProduit' >منتوجات اخرى</h3>
         <div class="row" >
 
-            <!-- Start Column 1 -->
+           
             @foreach ($accessoires as $accessoire)
             <div  class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
 
@@ -172,13 +172,13 @@
 
                     const counterSpan = document.querySelector('.counter-span');
 
-                    // Function to update counter in localStorage and on the page
+                  
                     function updateCounter(count) {
                         counterSpan.textContent = count;
                         localStorage.setItem('cartCounter', count);
                     }
 
-                    // Check if counter is saved in localStorage and update the counterSpan
+                 
                     if (localStorage.getItem('cartCounter')) {
                         updateCounter(parseInt(localStorage.getItem('cartCounter')));
                     }
@@ -192,10 +192,7 @@
                     });
 
 
-                    ///
-
-
-                    // Example for removing a product from the cart (adjust according to your implementation)
+                    
                     const removeButtons = document.querySelectorAll('.remove-btn');
                     removeButtons.forEach(button => {
                         button.addEventListener('click', function() {

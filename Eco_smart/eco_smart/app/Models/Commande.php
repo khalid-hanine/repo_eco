@@ -11,8 +11,7 @@ class Commande extends Model
     protected $fillable = [
         'total',
         'user_id',
-        'detail' // Ajoutez 'total' ici
-        // Ajoutez d'autres champs que vous souhaitez autoriser pour l'attribution de masse, le cas échéant
+        'detail' 
     ];
     public function user()
     {
