@@ -36,7 +36,7 @@
                             <a class="nav-link" href="{{ route('infos') }}" >Infos</a>
                         </li>
                     </ul>
-                    <span id="cartCounter" class="counter-span text-center" style="background-color: #e92323; width:20px;border-radius:50%;color:rgb(238, 208, 208)">0</span>
+                    <span id="cartCounter" class="counter-span text-center" style="background-color: #e92323; width:30px;border-radius:50%;color:rgb(238, 208, 208)">0</span>
                     
                     
 
@@ -131,7 +131,7 @@
             <div class="col-md-4">
             </div>
             <div class="col-md-6 text-md-right">
-                <p class="mb-1 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved by  <span style="color: #FFD700;">SMART</span><span style="color: #31c3f4;"> CAISSE</span> &mdash; Designed with love by <SPan style="color: rgb(77, 77, 75)">K</SPan><SPan style="color: rgb(155, 99, 239)">A</SPan><SPan style="color: rgb(115, 248, 123)">R </SPan>  <!-- License information: https://untree.co/license/ -->
+                <p class="mb-1 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved by  <span style="color: #FFD700;">SMART</span><span style="color: #31c3f4;"> CAISSE</span> &mdash; Designed by <SPan style="color: rgb(77, 77, 75)">Khalid</SPan><SPan style="color: rgb(155, 99, 239)">Achraf</SPan><SPan style="color: rgb(115, 248, 123)">Rida </SPan>  <!-- License information: https://untree.co/license/ -->
                 </p>
                  </div>
             </div>

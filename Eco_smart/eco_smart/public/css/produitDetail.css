@@ -327,7 +327,21 @@ transform: scale(1.1);
       box-shadow: 4px 4px 8px rgba(36, 141, 233, 0.5) ;
     }
     
-  
+  @media screen and(max-width: 300.98px) and(max-width: 574.98px){
+    #containerDetail{
+      margin: auto;
+      padding: 10px;
+    }
+     #mainImageP{
+      height: 50px !important;
+      width: 80px  !important;
+    } 
+    #mainImage{
+      height: 200px !important; 
+       width: 200px  !important;
+    }
+    
+  }
   @media screen and (max-width: 575.98px) {
     #containerDetail{
       margin: auto;

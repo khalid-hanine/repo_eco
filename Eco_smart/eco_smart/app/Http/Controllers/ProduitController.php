@@ -1,31 +1,24 @@
-    <?php
-    namespace App\Http\Controllers;
-    use Illuminate\Support\Facades\Auth;
+<?php
 
+namespace App\Http\Controllers;
 
+use App\Models\Produit;
+use App\Models\Panier;
+use App\Models\Commande;
+use App\Models\User;
+use App\Models\Profil;
+use App\Models\Activite;
+use Illuminate\Support\Facades\Auth;
 
-    use App\Models\Produit;
-    use App\Models\Panier;
-    use App\Models\Commande;
-    use App\Models\User;
-    use App\Models\Profil;
-    use App\Models\Activite;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
+class ProduitController extends Controller
 
-
-
-
-
-    use Illuminate\Http\Request;
-    use Illuminate\Support\Facades\Hash;
-
-    use function Laravel\Prompts\alert;
-
-    class ProduitController extends Controller
     {
 
         public function intro(){
-            return view('layouts.intro');
+            return view('Layouts.intro');
         }
         
         public function acceuil(){
@@ -305,10 +298,8 @@
                 }
         
                 $whatsappMessage .= "\nTotal : " . $total.",00 DH";
-
                 $encodedMessage = urlencode($whatsappMessage);
                 $whatsappNumber = '+212661144882'; 
-                
                 $whatsappURL = "https://wa.me/{$whatsappNumber}/?text={$encodedMessage}";
         
                 Panier::truncate();
